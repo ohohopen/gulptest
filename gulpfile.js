@@ -27,7 +27,7 @@ var gulpSequence = require('gulp-sequence');
 var clean = require('gulp-clean');
 const imagemin = require('gulp-imagemin');
 
-const ghPages = require('gulp-gh-pages');
+// const ghPages = require('gulp-gh-pages');
 
 
 //最終發布前刪除tmp及public，避免有些測試檔或無用的頁面存在在給客戶的版本中；
@@ -42,6 +42,15 @@ gulp.task('copyHTML',function(){
     .pipe(gulp.dest('./public/'))
 })
 
+
+// gulp.task('copyfolder',function(){
+//   return gulp.src('./source/slick/**')
+//     .pipe(plumber())
+//     .pipe(gulp.dest('./public/slick'))
+// })
+
+
+
 gulp.task('jade', function() {
   // var YOUR_LOCALS = {};
  
@@ -51,7 +60,7 @@ gulp.task('jade', function() {
     // .pipe(jade())
     .pipe(jade({
       //flase為壓縮
-      // pretty: false
+      pretty: true
     }))
     .pipe(gulp.dest('./public/'))
     .pipe(browserSync.stream()) 
@@ -100,7 +109,8 @@ gulp.task('bower', function() {
 });
 
 gulp.task('vendorJs', function() {
-  return gulp.src('./.tmp/vendors/**/*.js')
+  // return gulp.src('./.tmp/vendors/**/*.js')
+  return gulp.src(['./.tmp/vendors/**/jquery.js', './.tmp/vendors/**/bootstrap.js'])
   .pipe(concat('vendor.js'))
   .pipe(gulpif(options.env === 'production',uglify()))
   .pipe(gulp.dest('./public/js'))
@@ -125,12 +135,12 @@ gulp.task('watch', function () {
   gulp.watch('./source/**/*.js', gulp.series('babel'));
 });
 
-gulp.task('build', gulp.series('clean','jade','sass','babel','vendorJs','imagemin'));
+gulp.task('build', gulp.series('clean','jade','sass','babel','bower', 'vendorJs','imagemin'));
 
-gulp.task('deploy', () => 
-  gulp.src('./public/**/*')
-    .pipe(ghPages())
-);
+// gulp.task('deploy', () => 
+//   gulp.src('./public/**/*')
+//     .pipe(ghPages())
+// );
 //有watch
 gulp.task('default', gulp.series('sass', 'jade', 'babel', 'bower','vendorJs','imagemin', gulp.parallel('browser-sync', 'watch')));
 

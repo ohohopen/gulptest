@@ -1,4 +1,3 @@
-let newFn = ()=>{
-  console.log('fn1');
+function abc() {
+    console.log('abc')
 }
-newFn();

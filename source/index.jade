@@ -1,13 +1,328 @@
 <!DOCTYPE html>
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Document
-        link(rel="stylesheet", href="./css/all.css")
-        script(src="js/all.js")
-    body
-        br 
-        中文d   few fef whahahah icing elit. Aut at temporibus magni reprehenderit in, suscipit, incidunt libero odit eveniet laboriosam explicabo voluptate nam totam, fugiat ducimus? Neque soluta mollitia fugeque soluta mollitia fugit?
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    meta(name='Description' content='')
+    meta(name='keywords' content='')
+    meta(name='msapplication-TileColor' content='設定釘選網站在動態磚上的圖示及動態磚顏色')
+    meta(name='theme-color' content='手機背景顏色')
+    meta(property='og:url' content='https:')
+    meta(property='og:type' content='website')
+    meta(property='og:title' content='')
+    meta(property='og:description' content='')
+    meta(property='og:image' content='給社群抓的圖')
+    meta(property='og:image:width' content='600-1500') 
+    meta(property='og:image:height' content='315-1500')
+    title 思潮創意數位有限公司
+    //載入
+    link(rel='shortcut icon' href='favicon.ico')
+    link(rel="stylesheet", href="css/all.css")
+    script(src="js/vendor.js")
+    //google font
+    link(rel="preconnect" href="https://fonts.gstatic.com")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Teko:wght@400&display=swap")
+    //font awsome
+    script(defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous")
+    //slide
+    link(rel="stylesheet" type="text/css" href="slick/slick.css")
+    link(rel="stylesheet" type="text/css" href="slick/slick-theme-no-arrow.css")
 
-        
+    script(src="https://code.createjs.com/createjs-2015.11.26.min.js")
+    script(src="js/surfing.js")
+    script.
+      var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+      function init() {
+        canvas = document.getElementById("canvas");
+        anim_container = document.getElementById("animation_container");
+        dom_overlay_container = document.getElementById("dom_overlay_container");
+        var comp=AdobeAn.getComposition("B43F65E771AB3947A793DF35548058F0");
+        var lib=comp.getLibrary();
+        var loader = new createjs.LoadQueue(false);
+        loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
+        loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
+        var lib=comp.getLibrary();
+        loader.loadManifest(lib.properties.manifest);
+      }
+      function handleFileLoad(evt, comp) {
+        var images=comp.getImages();	
+        if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+      }
+      function handleComplete(evt,comp) {
+        //This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+        var lib=comp.getLibrary();
+        var ss=comp.getSpriteSheet();
+        var queue = evt.target;
+        var ssMetadata = lib.ssMetadata;
+        for(i=0; i<ssMetadata.length; i++) {
+          ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+        }
+        exportRoot = new lib.surfing();
+        stage = new lib.Stage(canvas);	
+        //Registers the "tick" event listener.
+        fnStartAnimation = function() {
+          stage.addChild(exportRoot);
+          createjs.Ticker.setFPS(lib.properties.fps);
+          createjs.Ticker.addEventListener("tick", stage);
+        }	    
+        //Code to support hidpi screens and responsive scaling.
+        AdobeAn.makeResponsive(false,'both',false,1,[canvas,anim_container,dom_overlay_container]);	
+        AdobeAn.compositionLoaded(lib.properties.id);
+        fnStartAnimation();
+      }
+
+  body(onload="init();")
+    .container
+    
+      nav
+        input(type="checkbox" id="menucheck")
+        section.menu
+          label.menucheck(for="menucheck")
+            .switch
+              span.menubar
+          .logo-nav: img(src="images/logo-nav.svg")
+          span 
+            span original media
+          .link
+            button
+              i.fas.fa-mobile-alt
+              span 0952-960365
+            button(onclick="location.href='mailto:service@odia.com.tw'")
+              <i class="fas fa-envelope"></i>
+              span service@odia.com.tw
+        section.sub-menu
+          ul
+            li
+              a(href="#web") 網站建置
+            li
+              a(href="#banner") 廣告素材
+            li
+              a(href="#dm") 數位刊物
+            li
+              a(href="#contact") 聯絡思潮
+
+      .main
+        section.kv-box
+          ul.title
+            li o
+            li r
+            li i
+            li g
+            li i
+            li n
+            li a
+            li l
+            li &nbsp;
+            li m
+            li e
+            li d
+            li i
+            li a
+          .logo: img(src="images/logo.svg")
+          //- 四單元btn;
+          ul.kv-menu
+            li
+              a(href="#web") 網站建置
+            li
+              a(href="#banner") 廣告素材
+            li
+              a(href="#dm") 數位刊物
+            li
+              a(href="#contact") 聯絡思潮
+          //- 四單元說明文;
+          div.kv-txt-box
+            ul.words
+              li 1著它他不來資坐是下就朋美，老地不背別林要人質然工室會：
+              li 2後的！輕和片教的土務。們朋臺的動是張著不不者日每
+              li 3間專明對病你實。地響除氣說黃、來之光自實開裡這！
+            div.surfing#animation_container
+              canvas#canvas
+              div#dom_overlay_container
+            ul.kv-txt
+              li &nbsp;
+              li &nbsp;
+              li &nbsp;
+              li &nbsp;
+            ul.kv-bg
+              li &nbsp;
+              li &nbsp;
+              li &nbsp;
+              li &nbsp;
+        section.web
+          h2.tiem-tag-web 網站建置
+          ul.slick
+            li
+              a(href="http://googl.com")
+                img(src="images/banner.jpg")
+            li
+              a(href="http://googl.com")
+                img(src="images/banner.jpg") 
+          
+        section.banner
+          h2.tiem-tag-web 廣告素材
+          ul.slick2
+            li
+              a(href="http://googl.com")
+                img(src="images/banner.jpg", alt="")
+            li
+              a(href="http://googl.com")
+                img(src="images/banner.jpg", alt="") 
+          
+        section.dm
+          h2.tiem-tag-web 刊物編排
+          ul
+            li
+              a(href="#") 電子刊物
+            li
+              a(href="#") 平面設計
+          .tab-content-box
+            .tab1
+              ul
+                li
+                  a(href="http://googl.com")
+            .tab2
+              ul
+                li
+                  a(href="http://googl.com")
+        section.contact
+          h3 思潮=您的網路最佳方案
+          .what
+            .txt
+              h4.title 如果您想...
+            dl
+              dt 做網站?
+              dd 
+                ul
+                  li 動線設計、視覺統籌、動態效果、後台功能客製化
+                  li 前端：HTML5+CSS3+JS
+                  li 後端：PHP+MYSQL資料
+            dl
+              dt 找外包？
+              dd 
+                ul
+                  li 廣告素材製作，含特殊規格
+                  li 一頁式網頁製作
+                  li 粉絲團全規格圖樣製作
+                  li EDM電子刊物
+                  li PDF修改編輯設計
+                  li 電子賀卡
+            dl
+              dt 維護更新？
+              dd 
+                ul
+                  li 各大瀏覽器相容性檢測
+                  li AWD &amp; RWD行動裝置測試
+                  li 符合國際W3C網頁標準
+                  li SEO網站關鍵字優化
+          .can-do
+            .txt
+              h4.title 那您可以...
+              p 直接撥打電話或email至下方信箱，也可填寫右側表單，本公司將盡快與您聯繫，歡迎洽詢！
+              button
+                i.fas.fa-mobile-alt
+                |  0952-960365
+              button(onclick="location.href='mailto:service@odia.com.tw'")
+                <i class="fas fa-envelope"></i>service@odia.com.tw
+            .form
+              div
+                textarea(placeholder="聯絡事項")
+              div
+                input.name(placeholder="填寫聯絡人")
+                input.mobile(placeholder="聯絡手機")
+                input.email(placeholder="聯絡手機")
+                button 確認送出
+      footer
+        copytright &copy; 2020 Odia Ltd. All Right Reserved.
+
+    //-小圖瀏覽
+    script(type="text/javascript" src="slick/slick.min.js")
+    script.
+      $(document).ready(function(){
+        $('.slick').slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots:false,
+          arrows: false,
+          fade: true
+        });
+        $('.slick2').slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots:true,
+          arrows: true
+        });
+        $('.slider-nav').slick({
+          slidesToShow: 5,
+          slidesToScroll: 5,
+          asNavFor: '.slick',
+          dots: false,
+          // centerMode: true,
+          centerPadding:0,
+          focusOnSelect: true,
+          touchMove:true,
+          draggable:true
+        });
+      });
+      $(function(){
+        var $kv_menu=$('.kv-menu'),
+            $menu_item=$kv_menu.find('li'),
+            $kv_txt=$('.kv-txt'),
+            $txt_item=$kv_txt.find('li'),
+            $kv_bg=$('.kv-bg'),
+            $bg_item=$kv_bg.find('li'),            
+            _index=0;
+
+        $menu_item.hover(function(){
+          _index=$(this).index();
+          var _txt_item_h=Math.round($txt_item.outerHeight()),
+              _move=-_index*_txt_item_h;
+          //- 四單元說明文
+          $kv_txt.stop().animate({
+            top:_move+'px',
+            opacity:1         
+          })
+          //- 四單元底圖
+          $bg_item.eq(_index).stop(true,true).fadeIn().addClass('go');
+          //- $bg_item.eq(_index).show().stop().animate({
+          //-   backgroundSize: '200%',
+          //-   animationTimingFunction:'linear',
+          //-   transition:'40s'
+          //- });
+
+        },function(){
+          //- 四單元說明文
+          $kv_txt.stop().animate({
+            opacity:0
+          })
+          //- 四單元底圖
+          $bg_item.fadeOut(1000);
+          //- $bg_item.stop().hide().css({
+          //-   backgroundSize: '100%'
+          //- });
+        })           
+      })
+      $(function(){
+        var $words=$('.words'),
+            $words_item=$words.find('li'),
+            _words_item_lengh=3
+          
+          
+          for(var i=0; i<_words_item_lengh;i++){
+
+            //- setInterval(function(){
+            //-   $words_item.eq(i).stop().animate({
+            //-     top:0
+            //-   })
+            //-   console.log(i);
+
+            //- },3000)
+
+
+
+
+          }
+        //- var words=function(){
+        //- }
+      })
+
