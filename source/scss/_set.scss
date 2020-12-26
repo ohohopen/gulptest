@@ -3,6 +3,45 @@
 .m0-a{
 	margin: 0 auto;
 }
+$primary-color:#262c2c;
+$sec-color:#191e1e;
+$mw:1600px;
+$main-mw:1200px;
+///////z-index整理
+//nav input開關
+$nav-switch:100;
+//選單整體
+$side-menu-bar:99;
+//選單項目整體
+$side-sub-menu:98;
+//kv四按鈕主體;
+$kv-menu-ul:80;
+//kv四說明文主體;
+$kv-txt-ul:79;
+//kv思潮logo
+$logo:78;
+//kv四說明文背景圖;
+$kv-bg-ul:77;
+//衝浪
+$surfing:75;
+//文案浮現
+$words:75;
+$web-bg:69;
+$web-inner-box:70;
+html,body{
+	font-family:  'Noto Sans CJK TC', sans-serif, "微軟正黑體", "新細明體",'Roboto Mono', monospace,Arial;
+	color: $primary-color;
+  background-color: #e0e0e0;
+	a{
+	  color: $primary-color;
+	}
+}
+ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+  
 //
 .mr0{ margin-right: 0; }
 .mt5{ margin-top: 5px !important; }

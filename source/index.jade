@@ -103,7 +103,7 @@ html(lang='en')
               a(href="#contact") 聯絡思潮
 
       .main
-        section.kv-box
+        //- section.kv-box
           ul.title
             li o
             li r
@@ -136,6 +136,7 @@ html(lang='en')
               li 1著它他不來資坐是下就朋美，老地不背別林要人質然工室會：
               li 2後的！輕和片教的土務。們朋臺的動是張著不不者日每
               li 3間專明對病你實。地響除氣說黃、來之光自實開裡這！
+              li 4444間專明對病你實。地響除氣說黃、來之光自實開裡這！
             div.surfing#animation_container
               canvas#canvas
               div#dom_overlay_container
@@ -150,42 +151,72 @@ html(lang='en')
               li &nbsp;
               li &nbsp;
         section.web
-          h2.tiem-tag-web 網站建置
-          ul.slick
-            li
-              a(href="http://googl.com")
-                img(src="images/banner.jpg")
-            li
-              a(href="http://googl.com")
-                img(src="images/banner.jpg") 
+          .inner-box
+            .item-tag
+              h2.tag-web 網站建置
+            .slider
+              ul.slider-cover 
+                li.empty &nbsp;
+                li.img
+                  img(src='images/slider-cover.png')
+              ul.slick
+                li
+                  ul
+                    li 公司名1 
+                    li 案名
+                    li
+                      button link
+                  a(href="#")
+                    img(src="images/web01.png")
+                li
+                  ul
+                    li 公司名2
+                    li 案名
+                    li
+                      button link
+                  a(href="#")
+                    img(src="images/web02.png")
+                li
+                  ul
+                    li 公司名3
+                    li 案名
+                    li
+                      button link
+                  a(href="#")
+                    img(src="images/web03.png")
           
         section.banner
-          h2.tiem-tag-web 廣告素材
-          ul.slick2
-            li
-              a(href="http://googl.com")
-                img(src="images/banner.jpg", alt="")
-            li
-              a(href="http://googl.com")
-                img(src="images/banner.jpg", alt="") 
+          .item-tag
+            h2.tag-banner 廣告素材
+        //-   h2.item-tag
+        //-   ul.slick2
+        //-     li
+        //-       a(href="http://googl.com")
+        //-         img(src="images/banner.jpg", alt="")
+        //-     li
+        //-       a(href="http://googl.com")
+        //-         img(src="images/banner.jpg", alt="") 
           
         section.dm
-          h2.tiem-tag-web 刊物編排
-          ul
-            li
-              a(href="#") 電子刊物
-            li
-              a(href="#") 平面設計
-          .tab-content-box
-            .tab1
-              ul
-                li
-                  a(href="http://googl.com")
-            .tab2
-              ul
-                li
-                  a(href="http://googl.com")
-        section.contact
+          .item-tag
+            h2.tag-edm 刊物編排
+
+        //-   h2.item-tag 
+        //-   ul
+        //-     li
+        //-       a(href="#") 電子刊物
+        //-     li
+        //-       a(href="#") 平面設計
+        //-   .tab-content-box
+        //-     .tab1
+        //-       ul
+        //-         li
+        //-           a(href="http://googl.com")
+        //-     .tab2
+        //-       ul
+        //-         li
+        //-           a(href="http://googl.com")
+        //- section.contact
           h3 思潮=您的網路最佳方案
           .what
             .txt
@@ -232,11 +263,12 @@ html(lang='en')
                 input.mobile(placeholder="聯絡手機")
                 input.email(placeholder="聯絡手機")
                 button 確認送出
-      footer
-        copytright &copy; 2020 Odia Ltd. All Right Reserved.
+        footer
+          span.copytright &copy; 2021 Odia Ltd. All Right Reserved.
 
     //-小圖瀏覽
     script(type="text/javascript" src="slick/slick.min.js")
+    script(type="text/javascript" src="js/kv-slider.js")
     script.
       $(document).ready(function(){
         $('.slick').slick({
@@ -244,7 +276,8 @@ html(lang='en')
           slidesToScroll: 1,
           dots:false,
           arrows: false,
-          fade: true
+          fade: true,
+          autoplay: false
         });
         $('.slick2').slick({
           slidesToShow: 1,
@@ -264,65 +297,3 @@ html(lang='en')
           draggable:true
         });
       });
-      $(function(){
-        var $kv_menu=$('.kv-menu'),
-            $menu_item=$kv_menu.find('li'),
-            $kv_txt=$('.kv-txt'),
-            $txt_item=$kv_txt.find('li'),
-            $kv_bg=$('.kv-bg'),
-            $bg_item=$kv_bg.find('li'),            
-            _index=0;
-
-        $menu_item.hover(function(){
-          _index=$(this).index();
-          var _txt_item_h=Math.round($txt_item.outerHeight()),
-              _move=-_index*_txt_item_h;
-          //- 四單元說明文
-          $kv_txt.stop().animate({
-            top:_move+'px',
-            opacity:1         
-          })
-          //- 四單元底圖
-          $bg_item.eq(_index).stop(true,true).fadeIn().addClass('go');
-          //- $bg_item.eq(_index).show().stop().animate({
-          //-   backgroundSize: '200%',
-          //-   animationTimingFunction:'linear',
-          //-   transition:'40s'
-          //- });
-
-        },function(){
-          //- 四單元說明文
-          $kv_txt.stop().animate({
-            opacity:0
-          })
-          //- 四單元底圖
-          $bg_item.fadeOut(1000);
-          //- $bg_item.stop().hide().css({
-          //-   backgroundSize: '100%'
-          //- });
-        })           
-      })
-      $(function(){
-        var $words=$('.words'),
-            $words_item=$words.find('li'),
-            _words_item_lengh=3
-          
-          
-          for(var i=0; i<_words_item_lengh;i++){
-
-            //- setInterval(function(){
-            //-   $words_item.eq(i).stop().animate({
-            //-     top:0
-            //-   })
-            //-   console.log(i);
-
-            //- },3000)
-
-
-
-
-          }
-        //- var words=function(){
-        //- }
-      })
-

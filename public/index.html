@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="Description" content=""/>
+    <meta name="keywords" content=""/>
+    <meta name="msapplication-TileColor" content="設定釘選網站在動態磚上的圖示及動態磚顏色"/>
+    <meta name="theme-color" content="手機背景顏色"/>
+    <meta property="og:url" content="https:"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content=""/>
+    <meta property="og:description" content=""/>
+    <meta property="og:image" content="給社群抓的圖"/>
+    <meta property="og:image:width" content="600-1500"/>
+    <meta property="og:image:height" content="315-1500"/>
+    <title>思潮創意數位有限公司</title>
+    <!--載入-->
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <link rel="stylesheet" href="css/all.css"/>
+    <script src="js/vendor.js"></script>
+    <!--google font-->
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Teko:wght@400&amp;display=swap"/>
+    <!--font awsome-->
+    <script defer="defer" src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+    <!--slide-->
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme-no-arrow.css"/>
+    <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+    <script src="js/surfing.js"></script>
+    <script>
+      var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+      function init() {
+        canvas = document.getElementById("canvas");
+        anim_container = document.getElementById("animation_container");
+        dom_overlay_container = document.getElementById("dom_overlay_container");
+        var comp=AdobeAn.getComposition("B43F65E771AB3947A793DF35548058F0");
+        var lib=comp.getLibrary();
+        var loader = new createjs.LoadQueue(false);
+        loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
+        loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
+        var lib=comp.getLibrary();
+        loader.loadManifest(lib.properties.manifest);
+      }
+      function handleFileLoad(evt, comp) {
+        var images=comp.getImages();	
+        if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+      }
+      function handleComplete(evt,comp) {
+        //This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+        var lib=comp.getLibrary();
+        var ss=comp.getSpriteSheet();
+        var queue = evt.target;
+        var ssMetadata = lib.ssMetadata;
+        for(i=0; i<ssMetadata.length; i++) {
+          ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+        }
+        exportRoot = new lib.surfing();
+        stage = new lib.Stage(canvas);	
+        //Registers the "tick" event listener.
+        fnStartAnimation = function() {
+          stage.addChild(exportRoot);
+          createjs.Ticker.setFPS(lib.properties.fps);
+          createjs.Ticker.addEventListener("tick", stage);
+        }	    
+        //Code to support hidpi screens and responsive scaling.
+        AdobeAn.makeResponsive(false,'both',false,1,[canvas,anim_container,dom_overlay_container]);	
+        AdobeAn.compositionLoaded(lib.properties.id);
+        fnStartAnimation();
+      }
+      
+    </script>
+  </head>
+  <body onload="init();">
+    <div class="container">
+      <nav>
+        <input type="checkbox" id="menucheck"/>
+        <section class="menu">
+          <label for="menucheck" class="menucheck">
+            <div class="switch"><span class="menubar"></span></div>
+          </label>
+          <div class="logo-nav"><img src="images/logo-nav.svg"/></div><span> <span>original media</span></span>
+          <div class="link">
+            <button><i class="fas fa-mobile-alt"></i><span>0952-960365</span></button>
+            <button onclick="location.href='mailto:service@odia.com.tw'"><i class="fas fa-envelope"></i><span>service@odia.com.tw</span></button>
+          </div>
+        </section>
+        <section class="sub-menu">
+          <ul>
+            <li><a href="#web">網站建置</a></li>
+            <li><a href="#banner">廣告素材</a></li>
+            <li><a href="#dm">數位刊物</a></li>
+            <li><a href="#contact">聯絡思潮</a></li>
+          </ul>
+        </section>
+      </nav>
+      <div class="main">
+        <section class="web">
+          <div class="inner-box">
+            <div class="item-tag">
+              <h2 class="tag-web">網站建置</h2>
+            </div>
+            <div class="slider">
+              <ul class="slider-cover"> 
+                <li class="empty">&nbsp;</li>
+                <li class="img"><img src="images/slider-cover.png"/></li>
+              </ul>
+              <ul class="slick">
+                <li>
+                  <ul>
+                    <li>公司名1 </li>
+                    <li>案名</li>
+                    <li>
+                      <button>link</button>
+                    </li>
+                  </ul><a href="#"><img src="images/web01.png"/></a>
+                </li>
+                <li>
+                  <ul>
+                    <li>公司名2</li>
+                    <li>案名</li>
+                    <li>
+                      <button>link</button>
+                    </li>
+                  </ul><a href="#"><img src="images/web02.png"/></a>
+                </li>
+                <li>
+                  <ul>
+                    <li>公司名3</li>
+                    <li>案名</li>
+                    <li>
+                      <button>link</button>
+                    </li>
+                  </ul><a href="#"><img src="images/web03.png"/></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section class="banner">
+          <div class="item-tag">
+            <h2 class="tag-banner">廣告素材</h2>
+          </div>
+        </section>
+        <section class="dm">
+          <div class="item-tag">
+            <h2 class="tag-edm">刊物編排</h2>
+          </div>
+        </section>
+        <footer><span class="copytright">&copy; 2021 Odia Ltd. All Right Reserved.</span></footer>
+      </div>
+    </div>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script type="text/javascript" src="js/kv-slider.js"></script>
+    <script>
+      $(document).ready(function(){
+        $('.slick').slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots:false,
+          arrows: false,
+          fade: true,
+          autoplay: false
+        });
+        $('.slick2').slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots:true,
+          arrows: true
+        });
+        $('.slider-nav').slick({
+          slidesToShow: 5,
+          slidesToScroll: 5,
+          asNavFor: '.slick',
+          dots: false,
+          // centerMode: true,
+          centerPadding:0,
+          focusOnSelect: true,
+          touchMove:true,
+          draggable:true
+        });
+      });
+    </script>
+  </body>
+</html>
