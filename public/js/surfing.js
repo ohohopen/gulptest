@@ -504,7 +504,7 @@ an.getComposition = function(id) {
 }
 
 
-an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers) {		
+an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers,stage) {		
 	var lastW, lastH, lastS=1;		
 	window.addEventListener('resize', resizeCanvas);		
 	resizeCanvas();		

@@ -8,9 +8,9 @@ html(lang='en')
     meta(name='keywords' content='')
     meta(name='msapplication-TileColor' content='設定釘選網站在動態磚上的圖示及動態磚顏色')
     meta(name='theme-color' content='手機背景顏色')
-    meta(property='og:url' content='https:')
+    meta(property='og:url' content='https://www.odia.com.tw')
     meta(property='og:type' content='website')
-    meta(property='og:title' content='')
+    meta(property='og:title' content='思潮創意數位有限公司')
     meta(property='og:description' content='')
     meta(property='og:image' content='給社群抓的圖')
     meta(property='og:image:width' content='600-1500') 
@@ -22,61 +22,20 @@ html(lang='en')
     script(src="js/vendor.js")
     //google font
     link(rel="preconnect" href="https://fonts.gstatic.com")
-    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Teko:wght@400&display=swap")
+    link(href="https://fonts.googleapis.com/css2?family=Teko:wght@400&display=swap" rel="stylesheet")
+    link(href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100&display=swap" rel="stylesheet")
     //font awsome
     script(defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous")
     //slide
     link(rel="stylesheet" type="text/css" href="slick/slick.css")
-    link(rel="stylesheet" type="text/css" href="slick/slick-theme-no-arrow.css")
-
-    script(src="https://code.createjs.com/createjs-2015.11.26.min.js")
-    script(src="js/surfing.js")
-    script.
-      var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
-      function init() {
-        canvas = document.getElementById("canvas");
-        anim_container = document.getElementById("animation_container");
-        dom_overlay_container = document.getElementById("dom_overlay_container");
-        var comp=AdobeAn.getComposition("B43F65E771AB3947A793DF35548058F0");
-        var lib=comp.getLibrary();
-        var loader = new createjs.LoadQueue(false);
-        loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
-        loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
-        var lib=comp.getLibrary();
-        loader.loadManifest(lib.properties.manifest);
-      }
-      function handleFileLoad(evt, comp) {
-        var images=comp.getImages();	
-        if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
-      }
-      function handleComplete(evt,comp) {
-        //This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
-        var lib=comp.getLibrary();
-        var ss=comp.getSpriteSheet();
-        var queue = evt.target;
-        var ssMetadata = lib.ssMetadata;
-        for(i=0; i<ssMetadata.length; i++) {
-          ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
-        }
-        exportRoot = new lib.surfing();
-        stage = new lib.Stage(canvas);	
-        //Registers the "tick" event listener.
-        fnStartAnimation = function() {
-          stage.addChild(exportRoot);
-          createjs.Ticker.setFPS(lib.properties.fps);
-          createjs.Ticker.addEventListener("tick", stage);
-        }	    
-        //Code to support hidpi screens and responsive scaling.
-        AdobeAn.makeResponsive(false,'both',false,1,[canvas,anim_container,dom_overlay_container]);	
-        AdobeAn.compositionLoaded(lib.properties.id);
-        fnStartAnimation();
-      }
-
-  body(onload="init();")
+    link(rel="stylesheet" type="text/css" href="slick/slick-theme.css")
+    //lightbox
+    link(rel="stylesheet" href="viewbox-master/viewbox.css")
+    script(src="viewbox-master/jquery.viewbox.min.js")
+  body
     .container
     
       nav
-        input(type="checkbox" id="menucheck")
         section.menu
           label.menucheck(for="menucheck")
             .switch
@@ -85,25 +44,32 @@ html(lang='en')
           span 
             span original media
           .link
+            button.gotop
+              i.fas.fa-arrow-up
             button
               i.fas.fa-mobile-alt
               span 0952-960365
-            button(onclick="location.href='mailto:service@odia.com.tw'")
-              <i class="fas fa-envelope"></i>
-              span service@odia.com.tw
+            button
+              i.fas.fa-envelope
+              span.address service@odia.com.tw
+              span.copy
+                input(value="service@odia.com.tw" style="display:none;")
+                a(href="#" class="copy_coupon") 複製信箱
+              span.mail
+                a(href="mailto:service@odia.com.tw") 直接開啟
         section.sub-menu
-          ul
-            li
-              a(href="#web") 網站建置
-            li
-              a(href="#banner") 廣告素材
-            li
-              a(href="#dm") 數位刊物
-            li
-              a(href="#contact") 聯絡思潮
+            ul
+              li
+                a(href="#") 網站建置
+              li
+                a(href="#") 廣告素材
+              li
+                a(href="#") 數位刊物
+              li
+                a(href="#") 聯絡思潮
 
       .main
-        //- section.kv-box
+        section.kv-box
           ul.title
             li o
             li r
@@ -150,150 +116,272 @@ html(lang='en')
               li &nbsp;
               li &nbsp;
               li &nbsp;
-        section.web
-          .inner-box
+        div.content
+          section#web
+            .inner-box
+              .item-tag
+                h2.tag-web 網站建置
+              .slider
+                ul.slider-cover 
+                  li.img
+                    img(src='images/slider-cover.png')
+                ul.slick
+                  li
+                    .project-info
+                      .list
+                        dl
+                          dt 官方網站
+                          dd 1SSDC澄毓綠建築設計顧問有限公司
+                        dl
+                          dt 合作夥伴
+                          dd 古洛迪
+                      button(onclick="location.href=''") 瀏覽網站
+                    a(href="#")
+                      img(src="images/web01.png")
+                  li
+                    .project-info
+                      .list
+                        dl
+                          dt 官方網站
+                          dd 2SSDC澄毓綠建築設計顧問有限公司
+                        dl
+                          dt 合作夥伴
+                          dd 古洛迪
+                      button(onclick="location.href=''") 瀏覽網站
+                    a(href="#")
+                      img(src="images/web02.png")
+                  li
+                    .project-info
+                      .list
+                        dl
+                          dt 官方網站
+                          dd 1SSDC澄毓綠建築設計顧問有限公司
+                        dl
+                          dt 合作夥伴
+                          dd 古洛迪
+                      button(onclick="location.href=''") 瀏覽網站
+                    a(href="#")
+                      img(src="images/web01.png")
+                  li
+                    .project-info
+                      .list
+                        dl
+                          dt 官方網站
+                          dd 2SSDC澄毓綠建築設計顧問有限公司
+                        dl
+                          dt 合作夥伴
+                          dd 古洛迪
+                      button(onclick="location.href=''") 瀏覽網站
+                    a(href="#")
+                      img(src="images/web02.png")
+                  li
+                    .project-info
+                      .list
+                        dl
+                          dt 官方網站
+                          dd 1SSDC澄毓綠建築設計顧問有限公司
+                        dl
+                          dt 合作夥伴
+                          dd 古洛迪
+                      button(onclick="location.href=''") 瀏覽網站
+                    a(href="#")
+                      img(src="images/web01.png")
+              .slider.subnav
+                .slider-nav
+                  a 思耐得股份有限公司
+                  a 澄毓建築設限公司
+                  a 思耐得股份司
+                  a 澄毓建築設有限公司
+                  a 思耐得股份有限公司
+                  a 澄毓建築設有限公司
+                  a 思耐得股份有限公司
+          section#banner
             .item-tag
-              h2.tag-web 網站建置
-            .slider
-              ul.slider-cover 
-                li.empty &nbsp;
-                li.img
-                  img(src='images/slider-cover.png')
-              ul.slick
-                li
-                  ul
-                    li 公司名1 
-                    li 案名
-                    li
-                      button link
-                  a(href="#")
-                    img(src="images/web01.png")
-                li
-                  ul
-                    li 公司名2
-                    li 案名
-                    li
-                      button link
-                  a(href="#")
-                    img(src="images/web02.png")
-                li
-                  ul
-                    li 公司名3
-                    li 案名
-                    li
-                      button link
-                  a(href="#")
-                    img(src="images/web03.png")
-          
-        section.banner
-          .item-tag
-            h2.tag-banner 廣告素材
-        //-   h2.item-tag
-        //-   ul.slick2
-        //-     li
-        //-       a(href="http://googl.com")
-        //-         img(src="images/banner.jpg", alt="")
-        //-     li
-        //-       a(href="http://googl.com")
-        //-         img(src="images/banner.jpg", alt="") 
-          
-        section.dm
-          .item-tag
-            h2.tag-edm 刊物編排
+              h2.tag-banner 廣告素材
 
-        //-   h2.item-tag 
-        //-   ul
-        //-     li
-        //-       a(href="#") 電子刊物
-        //-     li
-        //-       a(href="#") 平面設計
-        //-   .tab-content-box
-        //-     .tab1
-        //-       ul
-        //-         li
-        //-           a(href="http://googl.com")
-        //-     .tab2
-        //-       ul
-        //-         li
-        //-           a(href="http://googl.com")
-        //- section.contact
-          h3 思潮=您的網路最佳方案
-          .what
-            .txt
-              h4.title 如果您想...
-            dl
-              dt 做網站?
-              dd 
-                ul
-                  li 動線設計、視覺統籌、動態效果、後台功能客製化
-                  li 前端：HTML5+CSS3+JS
-                  li 後端：PHP+MYSQL資料
-            dl
-              dt 找外包？
-              dd 
-                ul
-                  li 廣告素材製作，含特殊規格
-                  li 一頁式網頁製作
-                  li 粉絲團全規格圖樣製作
-                  li EDM電子刊物
-                  li PDF修改編輯設計
-                  li 電子賀卡
-            dl
-              dt 維護更新？
-              dd 
-                ul
-                  li 各大瀏覽器相容性檢測
-                  li AWD &amp; RWD行動裝置測試
-                  li 符合國際W3C網頁標準
-                  li SEO網站關鍵字優化
-          .can-do
-            .txt
-              h4.title 那您可以...
-              p 直接撥打電話或email至下方信箱，也可填寫右側表單，本公司將盡快與您聯繫，歡迎洽詢！
-              button
-                i.fas.fa-mobile-alt
-                |  0952-960365
-              button(onclick="location.href='mailto:service@odia.com.tw'")
-                <i class="fas fa-envelope"></i>service@odia.com.tw
-            .form
-              div
-                textarea(placeholder="聯絡事項")
-              div
-                input.name(placeholder="填寫聯絡人")
-                input.mobile(placeholder="聯絡手機")
-                input.email(placeholder="聯絡手機")
-                button 確認送出
+            ul.slick2
+              li
+                img(src="images/banner.jpg", alt="")
+                span 專案名稱專案名稱專案名稱專案名稱專案名稱
+              li
+                img(src="images/banner2.jpg", alt="") 
+                span 專案名稱專案名稱專案名稱專案名稱專案名稱
+          section#dm
+            .item-tag
+              h2.tag-edm 刊物編排
+            ul.slick3#imageGallery
+                li
+                  a(class="image-link" href="images/xx2.jpg" style="background-image:url('images/xx2.jpg');")
+                  span 1-2專案名稱專案名稱
+                li
+                  a(class="image-link" href="images/xx2.jpg" style="background-image:url('images/xx2.jpg');")
+                  span 1-2專案名稱專案名稱專案名稱
+                li
+                  a(class="image-link" href="images/xx2.jpg" style="background-image:url('images/xx2.jpg');")
+                  span 1-2專案名稱專案名稱
+                li
+                  a(class="image-link" href="images/xx3.jpg" style="background-image:url('images/xx3.jpg');")
+                  span 1-3專案名稱專案名稱
+                li
+                  a(class="image-link" href="images/xx4.jpg" style="background-image:url('images/xx4.jpg');")
+                  span 1-4專案名稱專案名稱
+                li
+                  a(class="image-link" href="images/xx5.jpg" style="background-image:url('images/xx5.jpg');")
+                  span 1-5專案名稱專案名稱
+          section#contact
+            .item-tag
+              h2.tag-contact 聯絡思潮
+            h3 思潮=您的網路最佳方案
+            .what
+              .txt
+                h4 如果您想...
+              .dl-group
+                dl
+                  dt 做網站
+                  dd 
+                    ul
+                      //- li 動線設計、視覺統籌、動態效果、後台功能客製化
+                      li 形象品牌網站
+                      li 行銷一頁式網站
+                      li 廣告活動類網站
+                      li 基礎SEO關鍵字設置
+                dl
+                  dt 找外包
+                  dd 
+                    ul
+                      li 廣告素材製作，含特殊規格
+                      li 各大社群粉絲團全規格圖樣製作
+                      li EDM電子刊物
+                      //- li PDF修改編輯設計
+                      li 電子賀卡
+                dl
+                  dt 維護更新
+                  dd 
+                    ul
+                      li 各大瀏覽器相容性檢測
+                      li AWD &amp; RWD行動裝置測試
+                      li 符合國際W3C網頁標準
+                      li SEO網站關鍵字優化
+            .can-do
+              .txt
+                .head
+                  h4 那您可以...
+                .word
+                  p 直接撥打電話或email至下方信箱，也可填寫聯絡表單，本公司將盡快與您聯繫，歡迎洽詢！
+                  .btn-group
+                    button
+                      i.fas.fa-mobile-alt
+                      div
+                        span.phonenum 0952-960365
+                    button
+                      i.fas.fa-envelope
+                      div
+                        span.address service@odia.com.tw
+                        span.copy
+                          input(value="service@odia.com.tw" style="display:none;")
+                          a(href="#" class="copy_coupon") 複製信箱
+                        span.mail
+                          a(href="mailto:service@odia.com.tw") 直接開啟
+              .form-box
+                .form
+                  .input-group
+                    input.name(type="text" placeholder="填寫聯絡人")
+                    input.mobile(type="text" placeholder="聯絡手機")
+                    input.email(type="text" placeholder="聯絡手機")
+                    button(class="for-pc") <i class="fas fa-paper-plane"></i>確認送出
+                  .textarea
+                    textarea(placeholder="聯絡事項")
+                    button(class="for-m") <i class="fas fa-paper-plane"></i>確認送出
         footer
           span.copytright &copy; 2021 Odia Ltd. All Right Reserved.
-
+    //-選單
+    script(src="js/nav.js")
+    //-複製信箱
+    script(src="js/copytext.js")
+    //-回到最上層
+    script(src="js/gotop.js")
+    //-item隨scrollbar定位變色
+    script(src="js/item-color.js")    
+    //-surfing
+    script(src="js/createjs-2015.11.26.min.js")
+    script(src="js/surfing.js")
+    script(src="js/animate.js")
     //-小圖瀏覽
     script(type="text/javascript" src="slick/slick.min.js")
     script(type="text/javascript" src="js/kv-slider.js")
     script.
       $(document).ready(function(){
+        //WEBSITE
         $('.slick').slick({
           slidesToShow: 1,
           slidesToScroll: 1,
           dots:false,
           arrows: false,
-          fade: true,
-          autoplay: false
-        });
-        $('.slick2').slick({
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          dots:true,
-          arrows: true
+          //- autoplay: true,
+          fade: true
         });
         $('.slider-nav').slick({
           slidesToShow: 5,
           slidesToScroll: 5,
           asNavFor: '.slick',
           dots: false,
-          // centerMode: true,
+          arrows: true,
+          centerMode: true,
           centerPadding:0,
           focusOnSelect: true,
           touchMove:true,
+          //- autoplay: true,
           draggable:true
         });
+        //BANNER
+        $('.slick2').slick({
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots:true,
+          adaptiveHeight: true,
+          arrows: true,
+          responsive: [
+            {
+              breakpoint: 768,
+              settings: {
+                arrows: false,
+              }
+            }
+          ]
+        });
+        //edm
+        $('.slick3').slick({
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          dots:true,
+          arrows: true,
+          responsive: [
+            {
+              breakpoint: 768,
+              settings: {
+                arrows: false,
+                centerMode: true,
+                centerPadding: '40px',
+                slidesToShow: 3
+              }
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                arrows: false,
+                centerMode: true,
+                centerPadding: '40px',
+                slidesToShow: 1
+              }
+            }
+          ]
+
+
+
+
+        });
+        //- edm的lightbox
+        $('.image-link').viewbox();
+
+
       });

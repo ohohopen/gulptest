@@ -63,7 +63,7 @@
 
 //斷點
 @mixin breakpoint($point) { 
-	@media (min-width: $point+'px') {  
+	@media (max-width: $point+'px') {  
 		@content; 
 	}
 
