@@ -994,6 +994,7 @@ nav{
       font-weight: normal;
       justify-content: space-between;
       margin-bottom: 20px;
+      letter-spacing: 1px;
       .txt{
         flex: 0 0 30%;
         h4{
@@ -1071,6 +1072,7 @@ nav{
     }
     .can-do{
       display: flex;
+      letter-spacing: 1px;
       .txt{
         flex: 0 0 30%;
         box-sizing: border-box;

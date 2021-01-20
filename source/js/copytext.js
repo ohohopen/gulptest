@@ -1,3 +1,4 @@
+//copytext.js start
 $(function(){
   window.Clipboard = (function(window, document, navigator) {
     var textArea,
@@ -52,3 +53,4 @@ $(function(){
       window.Clipboard.copy(value);
   });
 })
+//copytext.js end

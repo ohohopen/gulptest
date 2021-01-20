@@ -1,3 +1,4 @@
+//kv-slider.js start
 $(function(){
   var $kv_menu=$('.kv-menu'),
       $menu_item=$kv_menu.find('li'),
@@ -55,3 +56,4 @@ $(function(){
     // console.log('比值：'+_value)
   
 })
+//kv-slider.js end

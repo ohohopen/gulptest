@@ -1,3 +1,4 @@
+//item-color start
 $(window).on('scroll',function(){
   var k=$(window).scrollTop(),
       $content=$('.content'),
@@ -26,8 +27,6 @@ $(window).on('scroll',function(){
     // console.log('scrollTop='+k)
     // console.log('_top='+_top.top)
     // console.log('_topHeight='+_topHeight)
-
   }
-  
-  
 })
+//item-color end

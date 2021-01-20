@@ -1114,7 +1114,8 @@ nav .sub-menu {
       display: flex;
       font-weight: normal;
       justify-content: space-between;
-      margin-bottom: 20px; }
+      margin-bottom: 20px;
+      letter-spacing: 1px; }
       .main #contact .what .txt {
         flex: 0 0 30%; }
         .main #contact .what .txt h4 {
@@ -1168,7 +1169,8 @@ nav .sub-menu {
               margin-bottom: 5px;
               line-height: 23px; }
     .main #contact .can-do {
-      display: flex; }
+      display: flex;
+      letter-spacing: 1px; }
       .main #contact .can-do .txt {
         flex: 0 0 30%;
         box-sizing: border-box;

@@ -1,3 +1,4 @@
+//surfing.js satrt
 (function (cjs, an) {
 
 var p; // shortcut to reference prototypes
@@ -15,7 +16,7 @@ lib.ssMetadata = [];
 p.nominalBounds = new cjs.Rectangle(0,0,41,44);
 
 
-(lib.元件1 = function(mode,startPosition,loop) {
+(lib.circle = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// 圖層_1
@@ -33,7 +34,7 @@ p.nominalBounds = new cjs.Rectangle(0,0,10.3,10.3);
 	this.initialize(mode,startPosition,loop,{});
 
 	// 圖層_1
-	this.instance = new lib.元件1("synched",0);
+	this.instance = new lib.circle("synched",0);
 	this.instance.parent = this;
 	this.instance.setTransform(5.15,5.15,0.2719,0.2719,0,0,0,5.2,5.2);
 	this.instance.alpha = 0.3984;
@@ -48,7 +49,7 @@ p.nominalBounds = new cjs.Rectangle(1.3,1.3,7.8,7.8);
 	this.initialize(mode,startPosition,loop,{});
 
 	// 圖層_1
-	this.instance = new lib.元件1("synched",0);
+	this.instance = new lib.circle("synched",0);
 	this.instance.parent = this;
 	this.instance.setTransform(5.15,5.15,0.2719,0.2719,0,0,0,5.2,5.2);
 	this.instance.alpha = 0.5;
@@ -63,7 +64,7 @@ p.nominalBounds = new cjs.Rectangle(1.3,1.3,7.8,7.8);
 	this.initialize(mode,startPosition,loop,{});
 
 	// 圖層_1
-	this.instance = new lib.元件1("synched",0);
+	this.instance = new lib.circle("synched",0);
 	this.instance.parent = this;
 	this.instance.setTransform(5.15,5.15,0.2719,0.2719,0,0,0,5.2,5.2);
 	this.instance.alpha = 0;
@@ -78,7 +79,7 @@ p.nominalBounds = new cjs.Rectangle(1.3,1.3,7.8,7.8);
 	this.initialize(mode,startPosition,loop,{});
 
 	// 圖層_1
-	this.instance = new lib.元件1("synched",0);
+	this.instance = new lib.circle("synched",0);
 	this.instance.parent = this;
 	this.instance.setTransform(5.15,5.15,0.2719,0.2719,0,0,0,5.2,5.2);
 	this.instance.alpha = 0.6484;
@@ -93,7 +94,7 @@ p.nominalBounds = new cjs.Rectangle(1.3,1.3,7.8,7.8);
 	this.initialize(mode,startPosition,loop,{});
 
 	// 圖層_1
-	this.instance = new lib.元件1("synched",0);
+	this.instance = new lib.circle("synched",0);
 	this.instance.parent = this;
 	this.instance.setTransform(5.15,5.15,0.2719,0.2719,0,0,0,5.2,5.2);
 	this.instance.alpha = 0.5;
@@ -108,7 +109,7 @@ p.nominalBounds = new cjs.Rectangle(1.3,1.3,7.8,7.8);
 	this.initialize(mode,startPosition,loop,{});
 
 	// 圖層_1
-	this.instance = new lib.元件1("synched",0);
+	this.instance = new lib.circle("synched",0);
 	this.instance.parent = this;
 	this.instance.setTransform(5.15,5.15,0.2719,0.2719,0,0,0,5.2,5.2);
 	this.instance.alpha = 0.3789;
@@ -123,7 +124,7 @@ p.nominalBounds = new cjs.Rectangle(1.3,1.3,7.8,7.8);
 	this.initialize(mode,startPosition,loop,{});
 
 	// 圖層_1
-	this.instance = new lib.元件1("synched",0);
+	this.instance = new lib.circle("synched",0);
 	this.instance.parent = this;
 	this.instance.setTransform(5.25,5.25,0.5147,0.5147,0,0,0,5.4,5.4);
 
@@ -137,7 +138,7 @@ p.nominalBounds = new cjs.Rectangle(2.5,2.5,5.3,5.3);
 	this.initialize(mode,startPosition,loop,{});
 
 	// 圖層_1
-	this.instance = new lib.元件1("synched",0);
+	this.instance = new lib.circle("synched",0);
 	this.instance.parent = this;
 	this.instance.setTransform(5.2,5.2,0.6699,0.6699,0,0,0,5.2,5.2);
 
@@ -151,7 +152,7 @@ p.nominalBounds = new cjs.Rectangle(1.7,1.7,6.999999999999999,6.999999999999999)
 	this.initialize(mode,startPosition,loop,{});
 
 	// 圖層_1
-	this.instance = new lib.元件1("synched",0);
+	this.instance = new lib.circle("synched",0);
 	this.instance.parent = this;
 	this.instance.setTransform(5.15,5.15,0.2719,0.2719,0,0,0,5.2,5.2);
 
@@ -165,7 +166,7 @@ p.nominalBounds = new cjs.Rectangle(2.4,2.4,5.6,5.6);
 	this.initialize(mode,startPosition,loop,{});
 
 	// 圖層_1
-	this.instance = new lib.元件1("synched",0);
+	this.instance = new lib.circle("synched",0);
 	this.instance.parent = this;
 	this.instance.setTransform(5.15,5.15,0.2719,0.2719,0,0,0,5.2,5.2);
 
@@ -545,3 +546,4 @@ an.makeResponsive = function(isResp, respDim, isScale, scaleType, domContainers,
 
 })(createjs = createjs||{}, AdobeAn = AdobeAn||{});
 var createjs, AdobeAn;
+//surfing.js end

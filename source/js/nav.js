@@ -1,3 +1,4 @@
+//nav.js start
 $(function(){
   var $switch=$('.switch'),
   $subMenu=$('.sub-menu'),
@@ -109,3 +110,5 @@ $(function(){
     // console.log(_scr)
   });
 })
+
+//nav.js end

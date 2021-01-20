@@ -86,11 +86,21 @@ gulp.task('sass', function () {
 });
 
 gulp.task('babel', () =>
-  gulp.src('./source/js/**/*.js')
+  // gulp.src('./source/js/**/*.js')
+
+  gulp.src([
+    './source/js/**/nav.js',
+    './source/js/**/copytext.js',
+    './source/js/**/gotop.js',
+    './source/js/**/item-color.js',
+    './source/js/**/kv-slider.js'
+  ])
     .pipe(sourcemaps.init())
     .pipe(babel({
         presets: ['@babel/env']
     }))
+
+
     .pipe(concat('all.js'))
     .pipe(gulpif(options.env === 'production',uglify({
       compress: {
