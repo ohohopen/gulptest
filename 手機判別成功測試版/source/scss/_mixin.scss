@@ -1,0 +1,139 @@
+@mixin bg($bg) {
+  background: url("../images/#{$bg}");
+  width: image-width("../images/#{$bg}");
+  height: image-height("../images/#{$bg}");
+}
+
+@mixin imgWH($imgWH) {
+  width: image-width("../images/#{$imgWH}");
+  height: image-height("../images/#{$imgWH}");
+}
+
+@mixin text-hide{
+  white-space: nowrap;
+  text-indent: 100%;
+  overflow: hidden;
+}
+
+// 清除浮動
+@mixin clearfix() { 
+	&:before, &:after { 
+			content: ""; display: table; 
+	} 
+	&:after { 
+			clear: both; 
+	} 
+}
+
+// 透明度
+@mixin opacity($opacity) { 
+	opacity: $opacity; 
+	$opacity-ie: $opacity * 100; 
+	filter: alpha(opacity=$opacity-ie); 
+}
+
+// 絕對定位
+@mixin abs-pos ($top: auto, $right: auto, $bottom: auto, $left: auto) { 
+	top: $top; 
+	right: $right;
+	bottom: $bottom;
+	left: $left;
+	position: absolute;
+}
+
+// 絕對定位四方置中
+@mixin abs-pos-center(){
+	position: absolute;	
+	top: 50%; 
+	left:50%;
+	transform: translate(-50%,-50%);
+}
+
+// 絕對定位上下置中
+@mixin abs-ver-center(){
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+// 絕對定位左右置中
+@mixin abs-hori-center(){
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+//斷點
+@mixin breakpoint($point) { 
+	@media (max-width: $point+'px') {  
+		@content; 
+	}
+
+	// @if $point == 400 { 
+	// 	@media (min-width: 400px) {  
+	// 		@content; 
+	// 	}
+	// } 
+
+}
+
+//rem換算px
+@function calculateRem($size) {
+	$remSize: $size / 16px;
+	@return $remSize * 1rem;
+}
+@mixin font-size($size) {
+	font-size: $size;
+	font-size: calculateRem($size);
+}
+
+//
+// @mixin bz($box:border-box) {
+// 	-webkit-box-sizing: $box;	
+// 	-moz-box-sizing: $box;
+// 	box-sizing: $box;
+// }
+
+//
+// @mixin br($border-radius-num:0) {
+// 	-webkit-border-radius: $border-radius-num;
+// 	-moz-border-radius: $border-radius-num;
+// 	border-radius: $border-radius-num;
+// }
+
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $color;
+    -moz-box-shadow:inset $top $left $blur $color;
+    box-shadow:inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
+
+@mixin html-reset(){
+  ul{
+    margin: 16px 0;
+    padding-left: 40px;
+    li{
+      list-style-type: disc;
+    }
+  }
+  ol{
+    margin: 16px 0;
+    padding-left: 40px;
+    li{
+      list-style-type: decimal;
+    }
+  }
+  dl{
+    dd{
+      margin-left: 40px;
+    }
+  }
+  img{
+    max-width: 100%;
+    display: inline;
+    vertical-align: bottom;
+  }
+}

@@ -448,7 +448,8 @@ nav .menu {
       transition: .4s;
       transition: .3s; }
       nav .menu .link button:hover {
-        transition: .4s; }
+        transition: .4s;
+        background-color: #36556f; }
       nav .menu .link button span {
         position: absolute;
         top: 50%;
@@ -470,7 +471,7 @@ nav .menu {
         opacity: 0;
         cursor: pointer; }
         nav .menu .link button:nth-child(1):hover {
-          background-color: #ccc; }
+          background-color: #36556f; }
         nav .menu .link button:nth-child(1).go {
           transition: .3s;
           top: -40px;
@@ -1197,7 +1198,7 @@ nav .sub-menu {
             margin-bottom: 0; }
           .main #contact .can-do .txt button:hover {
             transition: .3s;
-            background-color: #000; }
+            background-color: #36556f; }
           .main #contact .can-do .txt button svg {
             font-size: 30px;
             font-size: 1.875rem;
@@ -1585,7 +1586,8 @@ nav .sub-menu {
         padding-right: 0; }
         .main #contact .can-do .txt .head h4 {
           flex: 0 0 100%;
-          text-align: center; }
+          text-align: center;
+          margin: 0px 0 20px; }
         .main #contact .can-do .txt .word {
           display: flex;
           justify-content: space-between; }
@@ -1631,6 +1633,7 @@ nav .sub-menu {
 
 @media (max-width: 600px) {
   .main .kv-box {
+    width: 95%;
     height: 87.8vh; }
     .main .kv-box .words {
       width: 60%;
@@ -1681,6 +1684,8 @@ nav .sub-menu {
       width: 220px;
       margin-left: auto;
       margin-right: auto;
-      padding: 10px; } }
+      padding: 10px; }
+  .main #contact .can-do .form-box .form div input[type="text"] {
+    width: 100%; } }
 
 /*# sourceMappingURL=all.css.map */

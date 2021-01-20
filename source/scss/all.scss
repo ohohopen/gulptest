@@ -144,6 +144,7 @@ nav{
         transition: .4s;
         &:hover{
           transition: .4s;
+          background-color: #36556f;
         }
         span{
           position: absolute;
@@ -167,7 +168,7 @@ nav{
           opacity:0;
           cursor: pointer;
           &:hover{
-            background-color: #ccc;
+            background-color: #36556f;
           }
           &.go{
             transition:.3s;
@@ -1101,7 +1102,7 @@ nav{
           }
           &:hover{
             transition:.3s;
-            background-color: #000;
+            background-color: #36556f;
           }
           svg{
             @include font-size(30px);
@@ -1235,7 +1236,6 @@ nav{
   }
 }
 
-
 @include breakpoint(1700) {
   .main {
     .kv-box {
@@ -1276,8 +1276,6 @@ nav{
     }
   }
 }
-
-
 
 @include breakpoint(1480) {
 
@@ -1575,9 +1573,6 @@ nav{
   }
 }
 
-
-
-
 @include breakpoint(767) {
   html,body{
   }
@@ -1785,6 +1780,7 @@ nav{
             h4{
               flex:0 0 100%;
               text-align: center;
+              margin: 0px 0 20px;
             }
           }
           .word{
@@ -1856,10 +1852,10 @@ nav{
 
 }
 
-
 @include breakpoint(600) {
   .main{
     .kv-box{
+      width: 95%;
       height: 87.8vh;
       .words {
         width: 60%;
@@ -1950,6 +1946,17 @@ nav{
             }
           }
         }
+        .form-box{
+          .form{
+            div{
+              input[type="text"]{
+                width: 100%;
+              }
+            }
+          }
+        }
+      
+
       }    
     }
   }

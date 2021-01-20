@@ -11747,24 +11747,62 @@ $(function () {
         left: 0
       }, 50);
     }
-  }); // PC版滑入開關會自動開啟選單
+  }); // 是否為行動裝置之判別法1
 
-  $switch.on('mouseenter', function () {
-    // 手機版這段會造成要按兩次才能正常開關，需加上RWD修正
-    if (_w > 960) {
+  function isMobileDevice() {
+    var mobileDevice = ['Android', 'webOS', 'iPhone', 'iPad', 'iPod', 'BlackBerry', 'Windows Phone'];
+    var isMobileDevice = false;
+
+    for (var i = 0; i < mobileDevice.length; i++) {
+      if (navigator.userAgent.match(mobileDevice[i])) {
+        isMobileDevice = true;
+      }
+    }
+
+    return isMobileDevice;
+  }
+
+  isMobileDevice();
+
+  if (isMobileDevice()) {
+    console.log('這是行動裝置');
+  } else {
+    console.log('這不是行動裝置'); // PC版滑入開關會自動開啟選單
+
+    $switch.on('mouseenter', function () {
+      console.log('mouseenter');
       $switch.addClass('open');
       $subMenu.stop().animate({
         left: 0
       }, 50);
-    }
-  }); // 離開選單範圍, 也就是碰到main的範圍時收回選單
+    });
+  } // 是否為行動裝置之判別法2
+  // function isMobile() {
+  //   try{ document.createEvent("TouchEvent"); return true; }
+  //   catch(e){ return false;}  
+  // }
+  // if(isMobile()){
+  //   console.log('這是行動裝置')
+  // }else{
+  //   console.log('這不是行動裝置')
+  //   // PC版滑入自動開啟
+  //   $switch.on('mouseenter',function(){
+  //     console.log('mouseenter')
+  //     $switch.addClass('open');
+  //     $subMenu.stop().animate({
+  //       left:0
+  //     })
+  //   })
+  // }
+  // 離開選單範圍, 也就是碰到main的範圍時收回選單
+
 
   $('.main').on('mouseenter', function () {
     $switch.removeClass('open');
     $subMenu.stop().animate({
       left: -246
     }, 50);
-  }); //錨點
+  }); //////////////錨點
 
   var $subMenu = $('.sub-menu'),
       $subMenuUl = $subMenu.find('ul'),

@@ -13,10 +13,13 @@
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	background: #fff;
-	-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+	/* background: #fff; */
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	/* -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
 	-moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.6); */
 	overflow: auto;
 }
 .viewbox-header{
