@@ -37,9 +37,7 @@
     <div class="container">
       <nav>
         <section class="menu">
-          <label for="menucheck" class="menucheck">
-            <div class="switch"><span class="menubar"></span></div>
-          </label>
+          <div class="switch"><span class="menubar"></span></div>
           <div class="logo-nav"><img src="images/logo-nav.svg"/></div><span> <span>original media</span></span>
           <div class="link">
             <button class="gotop"><i class="fas fa-arrow-up"></i></button>
@@ -123,14 +121,14 @@
                       <div class="list">
                         <dl>
                           <dt>官方網站</dt>
-                          <dd>1SSDC澄毓綠建築設計顧問有限公司</dd>
+                          <dd>google建築設計顧問有限公司</dd>
                         </dl>
                         <dl>
                           <dt>合作夥伴</dt>
                           <dd>古洛迪</dd>
                         </dl>
                       </div>
-                      <button onclick="location.href=''">瀏覽網站</button>
+                      <button onclick="window.open('https://google.com','_blank')">瀏覽網站</button>
                     </div><a href="#"><img src="images/web01.png"/></a>
                   </li>
                   <li>
@@ -214,12 +212,26 @@
               <h2 class="tag-edm">刊物編排</h2>
             </div>
             <ul id="imageGallery" class="slick3">
-              <li><a href="images/xx2.jpg" style="background-image:url('images/xx2.jpg');" class="image-link"></a><span>1-2專案名稱專案名稱</span></li>
-              <li><a href="images/xx2.jpg" style="background-image:url('images/xx2.jpg');" class="image-link"></a><span>1-2專案名稱專案名稱專案名稱</span></li>
-              <li><a href="images/xx2.jpg" style="background-image:url('images/xx2.jpg');" class="image-link"></a><span>1-2專案名稱專案名稱</span></li>
-              <li><a href="images/xx3.jpg" style="background-image:url('images/xx3.jpg');" class="image-link"></a><span>1-3專案名稱專案名稱</span></li>
-              <li><a href="images/xx4.jpg" style="background-image:url('images/xx4.jpg');" class="image-link"></a><span>1-4專案名稱專案名稱</span></li>
-              <li><a href="images/xx5.jpg" style="background-image:url('images/xx5.jpg');" class="image-link"></a><span>1-5專案名稱專案名稱</span></li>
+              <li>
+                <div style="background-image:url('images/xx2.jpg');"></div>
+                <div><span>1-2專案名稱專案名稱</span><a href="images/xx2.jpg" class="image-link"><i class="fas fa-search-plus"></i> </a></div>
+              </li>
+              <li>
+                <div style="background-image:url('images/xx3.jpg');"></div>
+                <div><span>1-2專案名稱專案名稱</span><a href="images/xx3.jpg" class="image-link"><i class="fas fa-search-plus"></i></a></div>
+              </li>
+              <li>
+                <div style="background-image:url('images/xx4.jpg');"></div>
+                <div><span>1-2專案名稱專案名稱</span><a href="images/xx4.jpg" class="image-link"><i class="fas fa-search-plus"></i></a></div>
+              </li>
+              <li>
+                <div style="background-image:url('images/xx5.jpg');"></div>
+                <div><span>1-2專案名稱專案名稱</span><a href="images/xx5.jpg" class="image-link"><i class="fas fa-search-plus"></i></a></div>
+              </li>
+              <li>
+                <div style="background-image:url('images/xx3.jpg');"></div>
+                <div><span>1-2專案名稱專案名稱</span><a href="images/xx3.jpg" class="image-link"><i class="fas fa-search-plus"></i></a></div>
+              </li>
             </ul>
           </section>
           <section id="contact">
@@ -374,7 +386,7 @@
         $('.slick3').slick({
           slidesToShow: 4,
           slidesToScroll: 4,
-          swipe:false,
+          swipe:true,
           dots:true,
           arrows: true,
           responsive: [
@@ -391,6 +403,7 @@
               breakpoint: 480,
               settings: {
                 arrows: false,
+                swipe:true,
                 slidesToScroll: 1,
                 slidesToShow: 1
               }

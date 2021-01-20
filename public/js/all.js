@@ -11689,31 +11689,48 @@ $(function () {
       opacity: 1
     }); //- 四單元底圖
 
-    $bg_item.eq(_index).stop(true, true).fadeIn(200).css('z-index', 70).addClass('go').siblings('li').fadeOut(); //- $bg_item.eq(_index).show().stop().animate({
-    //-   backgroundSize: '200%',
-    //-   animationTimingFunction:'linear',
-    //-   transition:'40s'
-    //- });
+    $bg_item.eq(_index).stop(true, true).fadeIn(200).css('z-index', 70).addClass('go').siblings('li').fadeOut();
   }, function () {
     //- 四單元說明文
     $kv_txt.stop().animate({
       opacity: 0
     }); //- 四單元底圖
 
-    $bg_item.fadeOut(800).css('z-index', 50); //- $bg_item.stop().hide().css({
-    //-   backgroundSize: '100%'
-    //- });
+    $bg_item.fadeOut(800).css('z-index', 50);
   });
+
+  var $kv_bg = $('.kv-bg'),
+      _kvBg_w = $kv_bg.outerWidth(true),
+      _kvBg_h = $kv_bg.outerHeight(true),
+      _value = _kvBg_w / _kvBg_h; // 當kv寬小於高,呈直立長方形時,清除動畫,背景圖改設cover,並調整說明文的top於y中央以免與logo相碰
+
+
+  if (_value < 1.2) {
+    // console.log('ratio小於1.2，寛小於高')
+    // 設定清除bg動畫
+    $('.kv-bg').find('li').addClass('clear-animate'); //四圖說明文設定上下置中
+
+    $('.kv-txt').find('li').addClass('for-mobile-set');
+  } else {
+    // console.log('ratio大於1.2，寬大於高')
+    // 取消清除bg動畫
+    $('.kv-bg').find('li').removeClass('clear-animate'); //四圖說明文取消上下置中
+
+    $('.kv-txt').find('li').removeClass('for-mobile-set');
+  } // console.log('寬：'+_kvBg_w)
+  // console.log('高：'+_kvBg_h)
+  // console.log('比值：'+_value)
+
 });
 "use strict";
 
 $(function () {
-  //選單收闔
   var $switch = $('.switch'),
       $subMenu = $('.sub-menu'),
-      _w = $(window).outerWidth(true);
+      _w = $(window).outerWidth(true); //選單收闔
 
-  $switch.click(function (e) {
+
+  $switch.on('click', function (e) {
     e.preventDefault();
     console.log('vvv');
 
@@ -11730,8 +11747,9 @@ $(function () {
         left: 0
       }, 50);
     }
-  });
-  $switch.mouseenter(function () {
+  }); // PC版滑入開關會自動開啟選單
+
+  $switch.on('mouseenter', function () {
     // 手機版這段會造成要按兩次才能正常開關，需加上RWD修正
     if (_w > 960) {
       $switch.addClass('open');
@@ -11741,7 +11759,7 @@ $(function () {
     }
   }); // 離開選單範圍, 也就是碰到main的範圍時收回選單
 
-  $('.main').mouseenter(function () {
+  $('.main').on('mouseenter', function () {
     $switch.removeClass('open');
     $subMenu.stop().animate({
       left: -246
@@ -11756,24 +11774,24 @@ $(function () {
       $content = $('.content'),
       $section = $content.find('section'),
       _index = 0,
-      _scr = 0;
-  $kvMenuLi.click(function (e) {
+      _scr = 0; // kv四大鈕
+
+  $kvMenuLi.on('click', function (e) {
     e.preventDefault();
     _index = $(this).index();
     _scr = $section.eq(_index).offset().top;
     $('html,Body').stop().animate({
       scrollTop: _scr
-    });
-    console.log(_scr);
-  });
-  $subMenuLi.click(function (e) {
+    }); // console.log(_scr)
+  }); // 左側選單
+
+  $subMenuLi.on('click', function (e) {
     e.preventDefault();
     _index = $(this).index();
     _scr = $section.eq(_index).offset().top;
     $('html,Body').stop().animate({
       scrollTop: _scr
-    });
-    console.log(_scr);
+    }); // console.log(_scr)
   });
 });
 "use strict";

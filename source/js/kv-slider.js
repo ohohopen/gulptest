@@ -18,11 +18,6 @@ $(function(){
     })
     //- 四單元底圖
     $bg_item.eq(_index).stop(true,true).fadeIn(200).css('z-index',70).addClass('go').siblings('li').fadeOut();
-    //- $bg_item.eq(_index).show().stop().animate({
-    //-   backgroundSize: '200%',
-    //-   animationTimingFunction:'linear',
-    //-   transition:'40s'
-    //- });
 
   },function(){
     //- 四單元說明文
@@ -31,8 +26,32 @@ $(function(){
     })
     //- 四單元底圖
     $bg_item.fadeOut(800).css('z-index',50);
-    //- $bg_item.stop().hide().css({
-    //-   backgroundSize: '100%'
-    //- });
-  })           
+  })  
+  
+  
+  var $kv_bg=$('.kv-bg'),
+      _kvBg_w=$kv_bg.outerWidth(true),
+      _kvBg_h=$kv_bg.outerHeight(true),
+      _value=_kvBg_w/_kvBg_h
+
+    // 當kv寬小於高,呈直立長方形時,清除動畫,背景圖改設cover,並調整說明文的top於y中央以免與logo相碰
+    if(_value<1.2){
+      // console.log('ratio小於1.2，寛小於高')
+      // 設定清除bg動畫
+      $('.kv-bg').find('li').addClass('clear-animate')
+      //四圖說明文設定上下置中
+      $('.kv-txt').find('li').addClass('for-mobile-set')
+  
+    }else{
+      // console.log('ratio大於1.2，寬大於高')
+      // 取消清除bg動畫
+      $('.kv-bg').find('li').removeClass('clear-animate')
+      //四圖說明文取消上下置中
+      $('.kv-txt').find('li').removeClass('for-mobile-set')
+    }
+  
+    // console.log('寬：'+_kvBg_w)
+    // console.log('高：'+_kvBg_h)
+    // console.log('比值：'+_value)
+  
 })

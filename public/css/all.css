@@ -345,8 +345,6 @@ nav .menu {
   z-index: 99;
   background-color: #fff;
   text-align: center; }
-  nav .menu .menucheck {
-    position: relative; }
   nav .menu .switch {
     width: 100%;
     height: 50px;
@@ -462,7 +460,10 @@ nav .menu {
         font-weight: 400; }
       nav .menu .link button svg {
         font-size: 22px;
-        font-size: 1.375rem; }
+        font-size: 1.375rem;
+        position: absolute;
+        top: 7px;
+        left: 7px; }
       nav .menu .link button:nth-child(1) {
         text-align: center;
         top: -60px;
@@ -540,7 +541,7 @@ nav .sub-menu {
       border-bottom: 1px dotted #656969;
       position: relative; }
       nav .sub-menu ul li:hover:after {
-        width: 100%; }
+        width: 160px; }
       nav .sub-menu ul li:after {
         content: '';
         width: 0px;
@@ -583,6 +584,7 @@ nav .sub-menu {
     height: 80vh;
     margin: 11vh auto 100px;
     background: #262c2c url("../images/kv.jpg") no-repeat center center;
+    background-size: cover;
     position: relative;
     box-shadow: 0 32px 40px rgba(102, 102, 102, 0.5); }
     .main .kv-box ul.title {
@@ -697,15 +699,14 @@ nav .sub-menu {
         color: #fff;
         width: 100%;
         height: 100%;
-        position: relative; }
+        position: relative;
+        text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2); }
         .main .kv-box ul.kv-txt li:before {
           content: '';
           display: block;
           width: 100%;
           height: 50%;
           max-width: 650px;
-          font-size: 56px;
-          font-size: 3.5rem;
           font-weight: 700;
           line-height: 3.8rem;
           text-align: justify;
@@ -714,7 +715,9 @@ nav .sub-menu {
           top: 10%;
           left: 50%;
           -webkit-transform: translateX(-90%);
-                  transform: translateX(-90%); }
+                  transform: translateX(-90%);
+          font-size: 56px;
+          font-size: 3.5rem; }
         .main .kv-box ul.kv-txt li:nth-child(1):before {
           content: '為您量身訂作各類型RWD網站，符合W3C國際網頁標準，前後台設計及google流量平台設置，並單獨支援網頁切版等服務！'; }
         .main .kv-box ul.kv-txt li:nth-child(2):before {
@@ -723,6 +726,11 @@ nav .sub-menu {
           content: '一頁式網頁、平面DM製作提供、專業EDM設計，EDM格式適合各種收信軟體，免除收信破版的問題！'; }
         .main .kv-box ul.kv-txt li:nth-child(4):before {
           content: '2012年成立，致力於網站相關的各項內容制作及外包需求服務，也歡迎所有業界朋友一起合作，歡迎洽詢！'; }
+        .main .kv-box ul.kv-txt li.for-mobile-set:before {
+          top: 50%;
+          -webkit-transform: translate(-50%, -50%);
+                  transform: translate(-50%, -50%);
+          text-shadow: 1px 1px 20px rgba(0, 0, 0, 0.8); }
     .main .kv-box .words {
       color: #fff;
       position: absolute;
@@ -734,10 +742,12 @@ nav .sub-menu {
       list-style: none;
       margin: 0;
       padding: 0;
+      width: 700px;
       height: 30px;
-      width: 600px;
       font-size: 20px;
-      font-size: 1.25rem; }
+      font-size: 1.25rem;
+      line-height: 29px;
+      letter-spacing: 3px; }
 
 @-webkit-keyframes slide-words {
   5% {
@@ -867,6 +877,10 @@ nav .sub-menu {
     background-size: 100%; }
   to {
     background-size: 200%; } }
+        .main .kv-box ul.kv-bg li.clear-animate {
+          -webkit-animation: none;
+                  animation: none;
+          background-size: cover; }
         .main .kv-box ul.kv-bg li:nth-child(1) {
           background-image: url("../images/kv-item-bg1.jpg"); }
         .main .kv-box ul.kv-bg li:nth-child(2) {
@@ -1048,17 +1062,32 @@ nav .sub-menu {
     position: relative; }
     .main #dm .fancybox-button--zoom {
       display: none !important; }
-    .main #dm .slick3 li a {
-      transition: .3s;
-      width: calc(100% - 20px);
-      margin: 0 auto 10px;
-      display: block;
-      padding-top: 132%;
-      background-size: 100%;
-      background-position: 50% 50%; }
-    .main #dm .slick3 li span {
-      display: block;
-      text-align: center; }
+    .main #dm .slick3 li div {
+      transition: .3s; }
+      .main #dm .slick3 li div:nth-child(1) {
+        width: calc(100% - 20px);
+        margin: 0 auto 10px;
+        display: block;
+        padding-top: 132%;
+        background-size: 100%;
+        background-position: 50% 50%; }
+      .main #dm .slick3 li div:nth-child(2) {
+        position: relative; }
+        .main #dm .slick3 li div:nth-child(2) span {
+          padding-left: 10px; }
+        .main #dm .slick3 li div:nth-child(2) a {
+          position: absolute;
+          bottom: 37px;
+          right: 20px;
+          background-color: #262c2c;
+          padding: 5px;
+          border-radius: 5px;
+          color: #999;
+          font-size: 25px;
+          font-size: 1.5625rem; }
+          .main #dm .slick3 li div:nth-child(2) a:hover {
+            color: #fff;
+            padding: 15px; }
     .main #dm .slick3 li:hover a {
       transition: .3s;
       background-size: 110%; }
@@ -1270,9 +1299,33 @@ nav .sub-menu {
     font-size: 13px;
     font-size: 0.8125rem; }
 
+@media (max-width: 1700px) {
+  .main .kv-box ul.kv-txt li:before {
+    content: '';
+    -webkit-transform: translateX(-80%);
+            transform: translateX(-80%); } }
+
+@media (max-width: 1600px) {
+  .main .kv-box ul.kv-txt li:before {
+    content: '';
+    -webkit-transform: translateX(-60%);
+            transform: translateX(-60%); } }
+
+@media (max-width: 1480px) {
+  .main .kv-box .words {
+    width: 70%;
+    top: 26%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%); } }
+
 @media (max-width: 1280px) {
   .main .kv-box .logo {
     width: 150px; }
+  .main .kv-box .words {
+    width: 60%;
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 23px; }
   .main .kv-box ul.kv-menu li {
     width: 85px;
     height: 180px;
@@ -1301,14 +1354,6 @@ nav .sub-menu {
     line-height: 3.5rem;
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%); }
-  .main .kv-box .words {
-    display: none; }
-  @-webkit-keyframes surfing {}
-  @keyframes surfing {}  @-webkit-keyframes gogo {
-    from { }
-    to { } }  @keyframes gogo {
-    from { }
-    to { } }
   .main .item-tag {
     margin: 0 auto 30px; }
   .main #web .inner-box {
@@ -1403,22 +1448,11 @@ nav .sub-menu {
 
 @media (max-width: 960px) {
   .main .kv-box ul.kv-txt li:before {
-    content: ''; }
-  .main .kv-box .words {
-    display: none; }
-  .main #contact .what dl:nth-child(2) dt:after {
-    content: ''; }
-  .main #contact .what dl:nth-child(3) dt:after {
-    content: ''; }
-  .main #contact .what dl:nth-child(4) dt:after {
-    content: ''; }
-  .main #contact .what dl dt {
-    font-size: 15px;
-    font-size: 0.9375rem; }
-    .main #contact .what dl dt:after {
-      content: ''; }
-  .main #contact .can-do .txt button div span a:after {
-    content: ''; } }
+    content: '';
+    max-width: 450px;
+    font-size: 35px;
+    font-size: 2.1875rem;
+    line-height: 3.2rem; } }
 
 @media (max-width: 767px) {
   nav .menu {
@@ -1429,62 +1463,52 @@ nav .sub-menu {
         display: none; }
     nav .menu .link {
       display: none; }
-    nav .menu .switch {
-      width: 100%;
-      height: 50px;
-      background-color: #191e1e;
-      position: relative;
-      cursor: pointer; }
-      nav .menu .switch::before, nav .menu .switch::after {
-        content: '';
-        position: absolute;
-        left: 50%;
-        -webkit-transform: translate(-50%);
-                transform: translate(-50%);
-        display: block;
-        width: 24px;
-        height: 2px;
-        background-color: #fff;
-        transition: .3s; }
-      nav .menu .switch::before {
-        content: '';
-        top: 33%; }
-      nav .menu .switch::after {
-        content: '';
-        bottom: 30%; }
-      nav .menu .switch span {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        -webkit-transform: translate(-50%);
-                transform: translate(-50%);
-        display: block;
-        width: 24px;
-        height: 2px;
-        background-color: #fff;
-        transition: .3s; }
-      nav .menu .switch.open {
-        transition: .3s; }
-        nav .menu .switch.open span {
-          opacity: 0; }
-        nav .menu .switch.open::before {
-          transition: .3s;
-          -webkit-transform: rotate(45deg);
-                  transform: rotate(45deg);
-          left: 24%;
-          top: 49%; }
-        nav .menu .switch.open::after {
-          transition: .3s;
-          -webkit-transform: rotate(-45deg);
-                  transform: rotate(-45deg);
-          left: 24%;
-          bottom: 47%; }
-  .main .kv-box {
-    width: 95%; }
-    .main .kv-box ul.kv-txt li:before {
-      content: ''; }
-    .main .kv-box .words {
-      display: none; }
+    nav .menu .switch::before, nav .menu .switch::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      -webkit-transform: translate(-50%);
+              transform: translate(-50%);
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: #fff;
+      transition: .3s; }
+    nav .menu .switch::before {
+      content: '';
+      top: 33%; }
+    nav .menu .switch::after {
+      content: '';
+      bottom: 30%; }
+    nav .menu .switch span {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%);
+              transform: translate(-50%);
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: #fff;
+      transition: .3s; }
+    nav .menu .switch.open {
+      transition: .3s; }
+      nav .menu .switch.open span {
+        opacity: 0; }
+      nav .menu .switch.open::before {
+        transition: .3s;
+        -webkit-transform: rotate(45deg);
+                transform: rotate(45deg);
+        left: 24%;
+        top: 49%; }
+      nav .menu .switch.open::after {
+        transition: .3s;
+        -webkit-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+        left: 24%;
+        bottom: 47%; }
+  .main .kv-box .words {
+    width: 50%; }
   .main .item-tag h2 {
     font-size: 23px;
     font-size: 1.4375rem; }
@@ -1547,17 +1571,6 @@ nav .sub-menu {
       .main #contact .what .txt h4 {
         text-align: center;
         margin: 30px 0 20px; }
-      .main #contact .what .dl-group dl:nth-child(1) dt:after {
-        content: ''; }
-      .main #contact .what .dl-group dl:nth-child(2) dt:after {
-        content: ''; }
-      .main #contact .what .dl-group dl:nth-child(3) dt:after {
-        content: ''; }
-      .main #contact .what .dl-group dl dt {
-        font-size: 18px;
-        font-size: 1.125rem; }
-        .main #contact .what .dl-group dl dt:after {
-          content: ''; }
       .main #contact .what .dl-group dl dd ul li {
         margin-bottom: 5px;
         line-height: 20px;
@@ -1586,8 +1599,6 @@ nav .sub-menu {
             flex: 0 0 48%;
             display: flex;
             flex-flow: wrap column; }
-            .main #contact .can-do .txt .word .btn-group button div span a:after {
-              content: ''; }
       .main #contact .can-do .form-box .form {
         margin-top: 15px;
         width: 100%;
@@ -1621,6 +1632,12 @@ nav .sub-menu {
 @media (max-width: 600px) {
   .main .kv-box {
     height: 87.8vh; }
+    .main .kv-box .words {
+      width: 60%;
+      top: 30%;
+      font-size: 18px;
+      font-size: 1.125rem;
+      line-height: 26px; }
     .main .kv-box ul.title {
       display: block;
       text-align: right;

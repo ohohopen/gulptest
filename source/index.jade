@@ -37,9 +37,8 @@ html(lang='en')
     
       nav
         section.menu
-          label.menucheck(for="menucheck")
-            .switch
-              span.menubar
+          .switch
+            span.menubar
           .logo-nav: img(src="images/logo-nav.svg")
           span 
             span original media
@@ -86,7 +85,7 @@ html(lang='en')
             li i
             li a
           .logo: img(src="images/logo.svg")
-          //- 四單元btn;
+          //- 四單元btn
           ul.kv-menu
             li
               a(href="#web") 網站建置
@@ -96,21 +95,25 @@ html(lang='en')
               a(href="#dm") 數位刊物
             li
               a(href="#contact") 聯絡思潮
-          //- 四單元說明文;
+          //- 四單元
           div.kv-txt-box
+            //-輪播文字
             ul.words
               li 1著它他不來資坐是下就朋美，老地不背別林要人質然工室會：
               li 2後的！輕和片教的土務。們朋臺的動是張著不不者日每
               li 3間專明對病你實。地響除氣說黃、來之光自實開裡這！
               li 4444間專明對病你實。地響除氣說黃、來之光自實開裡這！
+            //-衝浪者
             div.surfing#animation_container
               canvas#canvas
               div#dom_overlay_container
+            //- 四單元介紹短文
             ul.kv-txt
               li &nbsp;
               li &nbsp;
               li &nbsp;
               li &nbsp;
+            //- 四單元背景圖
             ul.kv-bg
               li &nbsp;
               li &nbsp;
@@ -131,11 +134,11 @@ html(lang='en')
                       .list
                         dl
                           dt 官方網站
-                          dd 1SSDC澄毓綠建築設計顧問有限公司
+                          dd google建築設計顧問有限公司
                         dl
                           dt 合作夥伴
                           dd 古洛迪
-                      button(onclick="location.href=''") 瀏覽網站
+                      button(onclick="window.open('https://google.com','_blank')") 瀏覽網站
                     a(href="#")
                       img(src="images/web01.png")
                   li
@@ -211,23 +214,30 @@ html(lang='en')
               h2.tag-edm 刊物編排
             ul.slick3#imageGallery
                 li
-                  a(class="image-link" href="images/xx2.jpg" style="background-image:url('images/xx2.jpg');")
-                  span 1-2專案名稱專案名稱
+                  div(style="background-image:url('images/xx2.jpg');")
+                  div
+                    span 1-2專案名稱專案名稱
+                    a(href="images/xx2.jpg" class="image-link") <i class="fas fa-search-plus"></i> 
                 li
-                  a(class="image-link" href="images/xx2.jpg" style="background-image:url('images/xx2.jpg');")
-                  span 1-2專案名稱專案名稱專案名稱
+                  div(style="background-image:url('images/xx3.jpg');")
+                  div
+                    span 1-2專案名稱專案名稱
+                    a(href="images/xx3.jpg" class="image-link") <i class="fas fa-search-plus"></i>
                 li
-                  a(class="image-link" href="images/xx2.jpg" style="background-image:url('images/xx2.jpg');")
-                  span 1-2專案名稱專案名稱
+                  div(style="background-image:url('images/xx4.jpg');")
+                  div
+                    span 1-2專案名稱專案名稱
+                    a(href="images/xx4.jpg" class="image-link") <i class="fas fa-search-plus"></i>
                 li
-                  a(class="image-link" href="images/xx3.jpg" style="background-image:url('images/xx3.jpg');")
-                  span 1-3專案名稱專案名稱
+                  div(style="background-image:url('images/xx5.jpg');")
+                  div
+                    span 1-2專案名稱專案名稱
+                    a(href="images/xx5.jpg" class="image-link") <i class="fas fa-search-plus"></i>
                 li
-                  a(class="image-link" href="images/xx4.jpg" style="background-image:url('images/xx4.jpg');")
-                  span 1-4專案名稱專案名稱
-                li
-                  a(class="image-link" href="images/xx5.jpg" style="background-image:url('images/xx5.jpg');")
-                  span 1-5專案名稱專案名稱
+                  div(style="background-image:url('images/xx3.jpg');")
+                  div
+                    span 1-2專案名稱專案名稱
+                    a(href="images/xx3.jpg" class="image-link") <i class="fas fa-search-plus"></i>
           section#contact
             .item-tag
               h2.tag-contact 聯絡思潮
@@ -369,7 +379,7 @@ html(lang='en')
         $('.slick3').slick({
           slidesToShow: 4,
           slidesToScroll: 4,
-          swipe:false,
+          swipe:true,
           dots:true,
           arrows: true,
           responsive: [
@@ -386,6 +396,7 @@ html(lang='en')
               breakpoint: 480,
               settings: {
                 arrows: false,
+                swipe:true,
                 slidesToScroll: 1,
                 slidesToShow: 1
               }

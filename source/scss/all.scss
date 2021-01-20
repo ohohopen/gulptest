@@ -23,9 +23,6 @@ nav{
     z-index: $side-menu-bar;
     background-color: #fff;
     text-align: center;
-    .menucheck{
-      position: relative;
-    }
     // 漢堡
     .switch{
       width: 100%;
@@ -159,6 +156,9 @@ nav{
         }
         svg{
           @include font-size(22px);
+          position: absolute;
+          top: 7px;
+          left: 7px;
         }
         transition:.3s;
         &:nth-child(1){
@@ -272,7 +272,7 @@ nav{
         //item border animate
         &:hover{
           &:after{
-            width: 100%;
+            width: 160px;
           }
         }
         //item border
@@ -360,6 +360,7 @@ nav{
     height: 80vh;
     margin: 11vh auto 100px;
     background:#262c2c url('../images/kv.jpg') no-repeat center center;
+    background-size: cover;
     position: relative;
     box-shadow: 0 32px 40px rgba($color: #666, $alpha: .5);
     ul.title{
@@ -488,13 +489,13 @@ nav{
         width: 100%;
         height: 100%;
         position: relative;
+        text-shadow: 1px 1px 10px rgba(#000,.2);
         &:before{
           content:'';
           display: block;
           width: 100%;
           height: 50%;
           max-width: 650px;
-          @include font-size(56px);
           font-weight: 700;
           line-height: 3.8rem;
           text-align: justify;
@@ -503,6 +504,7 @@ nav{
           top: 10%;
           left: 50%;
           transform: translateX(-90%);        
+          @include font-size(56px);
         }
         &:nth-child(1){
           &:before{
@@ -524,6 +526,13 @@ nav{
             content:'2012年成立，致力於網站相關的各項內容制作及外包需求服務，也歡迎所有業界朋友一起合作，歡迎洽詢！';
           }
         }
+        &.for-mobile-set{
+          &:before{
+            top: 50%;
+            transform: translate(-50%,-50%);        
+            text-shadow: 1px 1px 20px rgba(#000,.8);
+          }
+        }
       }
 
     }
@@ -539,9 +548,11 @@ nav{
       list-style: none;
       margin: 0;
       padding: 0;
+      width: 700px;
       height: 30px;
-      width: 600px;
       @include font-size(20px);
+      line-height: 29px;
+      letter-spacing: 3px;
       @keyframes slide-words {
         5%{
           top:0;
@@ -644,23 +655,17 @@ nav{
             background-size: 200%;
           }
         }
+        // 需放在.go的後面才有效!!
+        &.clear-animate{
+          animation: none;
+          background-size: cover;
+        }
         &:nth-child(1){ background-image: url('../images/kv-item-bg1.jpg'); }
         &:nth-child(2){ background-image: url('../images/kv-item-bg2.jpg'); }
         &:nth-child(3){ background-image: url('../images/kv-item-bg3.jpg'); }
         &:nth-child(4){ background-image: url('../images/kv-item-bg4.jpg'); }
       }
     }
-
-
-
-
-
-
-
-
-
-
-
   }
   .item-tag{
     max-width: $mw;
@@ -907,18 +912,40 @@ nav{
     }
     .slick3{
       li{
-        a{
+        div{
           transition:.3s;
-          width: calc(100% - 20px);
-          margin: 0 auto 10px;
-          display: block;
-          padding-top: 132%;
-          background-size: 100%;
-          background-position: 50% 50%;
-        }
-        span{
-          display: block;
-          text-align: center;
+          &:nth-child(1){
+            width: calc(100% - 20px);
+            margin: 0 auto 10px;
+            display: block;
+            padding-top: 132%;
+            background-size: 100%;
+            background-position: 50% 50%;
+          }
+          &:nth-child(2){
+            position: relative;
+            span{
+              padding-left: 10px;             
+            }
+            a{
+              position: absolute;
+              bottom: 37px;
+              right: 20px;
+              background-color: $primary-color;
+              padding: 5px;
+              border-radius: 5px;
+              color: #999;
+              @include font-size(25px);
+              &:hover{
+                color: #fff;
+                padding: 15px;
+              }
+
+            }
+
+
+          }
+
         }
         &:hover{
           a{
@@ -1206,101 +1233,95 @@ nav{
     letter-spacing: 1px;
     @include font-size(13px);
   }
+}
 
+
+@include breakpoint(1700) {
+  .main {
+    .kv-box {
+
+      //- 四單元說明文
+      ul.kv-txt{
+        li{
+          &:before{
+            content:'';
+            // max-width: 450px;
+            // @include font-size(36px);
+            // line-height: 3.5rem;
+            transform: translateX(-80%); 
+            // background-color: $a;       
+          }
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint(1600) {
+  .main {
+    .kv-box {
+
+      //- 四單元說明文
+      ul.kv-txt{
+        li{
+          &:before{
+            content:'';
+            // max-width: 450px;
+            // @include font-size(36px);
+            // line-height: 3.5rem;
+            transform: translateX(-60%); 
+          }
+        }
+      }
+    }
+  }
 }
 
 
 
+@include breakpoint(1480) {
 
-
-
-
+  .main {
+    .kv-box {
+      .words {
+        width: 70%;
+        top: 26%;
+        transform: translateX(-50%);
+        li{
+          // background-color: #f0f;
+  
+        }
+      }
+    }
+  }
+}
 
 @include breakpoint(1280) {
-  html,body{
-    // background-color: #00f;
-  }
-  nav{
-    // display: none;
-  }
   .main{
-
-
     .kv-box{
-      // width: calc(100% - 100px);
-      // max-width: 1600px;
-      // height: 80vh;
-      // margin: 11vh auto 100px;
-      // background: url('../images/kv.jpg') no-repeat center center;
-      // position: relative;
-      // box-shadow: 0 32px 40px rgba($color: #666, $alpha: .5);
-      ul.title{
-        // width: 100%;
-        // list-style: none;
-        // margin: 0;
-        // padding: 0;
-        // position: absolute;
-        // top: -50px;
-        // display: flex;
-        // justify-content: space-between;
-        // text-transform: uppercase;
-        // @include font-size(12px);
-        // transform:scale(0.9);
-
-      }
       .logo{
         width: 150px;
-        // position: relative;
-        // z-index: $logo;
+      }
+      .words {
+        width: 60%;
+        @include font-size(16px);
+        line-height: 23px;
       }
       ul.kv-menu{
-        // display: flex;
-        // justify-content: flex-end;
-        // width: 95%;
-        // list-style: none;
-        // padding: 0;
-        // position: absolute;
-        // bottom: -40px;
-        // z-index: $kv-menu-ul;
-        // @include abs-hori-center();
         li{
           width: 85px;
           height: 180px;
-          // margin-right: 1px;
-          // writing-mode: vertical-lr;
-          // background-color: #fff;
-          // transition:.3s;
-          // box-sizing: border-box;
           padding: 15px 0 0 8px;
-          // letter-spacing: 1px;
-          // background-repeat: no-repeat;
           background-position: -75% 90%;
           background-size: 150%;
-          // filter: grayscale(100%);
           @include font-size(22px);
           a{
-            // display: block;
-            // width: 100%;
-            // text-decoration: none;
-            // position: relative;
             &:after{
-              // content:'';
               @include font-size(14px);
-              // color: #8d8f8f;
-              // font-family: 'Teko', sans-serif;
-              // margin-left: 5px;
-              // text-transform: uppercase;
-              // position: absolute;
-              // top: 3px;
               left: 18px;
-              // transition:.3s;
             }
           }
           &:hover{
-            // width: 250px;
-            // transition:.5s;
-            // filter: grayscale(0%);
-            // background-position: 80% 90%;
             background-size: 80%;
             @include font-size(28px);
             a{
@@ -1310,222 +1331,20 @@ nav{
               }
             }
           }
-          // &:nth-child(1){ 
-          //   background-image: url('../images/nav-item-bg1.jpg'); 
-          //   a{
-          //     &:after{ content:'website';}
-          //   }        
-          // }
-          // &:nth-child(2){ 
-          //   background-image: url('../images/nav-item-bg2.jpg'); 
-          //   a{
-          //     &:after{ content:'banner';}
-          //   }        
-          // }
-          // &:nth-child(3){ 
-          //   background-image: url('../images/nav-item-bg3.jpg'); 
-          //   a{
-          //     &:after{ content:'dm . edm';}
-          //   }        
-          // }
-          // &:nth-child(4){ 
-          //   background-image: url('../images/nav-item-bg4.jpg'); 
-          //   a{
-          //     &:after{ content:'contact';}
-          //   }        
-          // }
         }
       }
       //- 四單元說明文
-      .kv-txt-box{
-        // width: 100%;
-        // height: 100%;
-        // position: absolute;
-        // overflow: hidden;
-        // top: 0;
-      }
       ul.kv-txt{
-        // list-style: none;
-        // width: 100%;
-        // height: 100%;
-        // margin: 0;
-        // padding: 0;
-        // position: absolute;
-        // top: 1000px;
-        // z-index: $kv-txt-ul;
         li{
-          // color: #fff;
-          // width: 100%;
-          // height: 100%;
-          // position: relative;
           &:before{
             content:'';
-            // display: block;
-            // width: 100%;
-            // height: 50%;
             max-width: 450px;
             @include font-size(36px);
-            // font-weight: 700;
             line-height: 3.5rem;
-            // text-align: justify;
-            // position: relative;
-            // position: absolute;
-            // top: 10%;
-            // left: 50%;
             transform: translateX(-50%);        
           }
-          // &:nth-child(1){
-          //   &:before{
-          //     content:'為您量身訂作各類型RWD網站，符合W3C國際網頁標準，前後台設計及google流量平台設置，並單獨支援網頁切版等服務！';
-          //   }
-          // }
-          // &:nth-child(2){
-          //   &:before{
-          //     content:'提供素材BANNER製作，HTML5格式、動態GIF、靜態素材、特殊版位、社群用圖...配合度高、交件迅速，隨時火力支援你！';
-          //   }
-          // }
-          // &:nth-child(3){
-          //   &:before{
-          //     content:'一頁式網頁、平面DM製作提供、專業EDM設計，EDM格式適合各種收信軟體，免除收信破版的問題！';
-          //   }
-          // }
-          // &:nth-child(4){
-          //   &:before{
-          //     content:'2012年成立，致力於網站相關的各項內容制作及外包需求服務，也歡迎所有業界朋友一起合作，歡迎洽詢！';
-          //   }
-          // }
-        }
-
-      }
-      //文案浮現
-      .words{
-        display: none;
-        // color: #fff;
-        // position: absolute;
-        // top: 20%;
-        // left: 50%;
-        // transform:translateX(-80%);
-        // z-index: $words;
-        // list-style: none;
-        // margin: 0;
-        // padding: 0;
-        // height: 30px;
-        // width: 600px;
-        // @include font-size(20px);
-        // @keyframes slide-words {
-        //   5%{
-        //     top:0;
-        //     opacity:1;
-        //   }
-        //   25%{
-        //     top:0;
-        //     opacity:1;
-        //   }
-        //   30%{
-        //     top: -50px;
-        //     opacity:0;
-        //   }
-          
-        // }
-        li{
-          // position: absolute;
-          // top: 40px;
-          // left: 50%;
-          // transform:translateX(-50%);
-          // width: 100%;
-          // text-align: center;
-          // animation-name: slide-words;
-          // animation-iteration-count:infinite;
-          // animation-duration: 20s;
-          // opacity:0;
-          // &:nth-child(1){
-          //   animation-delay: 0s;
-          // }
-          // &:nth-child(2){
-          //   animation-delay: 5s;
-          // }
-          // &:nth-child(3){
-          //   animation-delay: 10s;
-          // }
-          // &:nth-child(4){
-          //   animation-delay: 15s;
-          // }
-          
         }
       }
-      //衝浪者
-      @keyframes surfing {
-        // from{
-        //   transform: rotate(0);
-        //   transform-origin: top right;
-        // }
-        // to{
-        //   transform: rotate(5deg);
-        //   transform-origin: top right;
-        // }      
-      }
-      .surfing{
-        // position: absolute;
-        // @include abs-ver-center();
-        // left: 35%;
-        // width: 150px;
-        // height: 150px;
-        // z-index: $surfing;
-        // animation-name:surfing;
-        // animation-duration:1s;
-        // animation-iteration-count:infinite;
-        // animation-direction:alternate;
-        // animation-timing-function:linear;
-        
-      }
-      //- 四單元底圖
-      ul.kv-bg{
-        // list-style: none;
-        // width: 100%;
-        // height: 100%;
-        // margin: 0;
-        // padding: 0;
-        // position: relative;
-        // z-index: $kv-bg-ul;
-        li{
-          // width: 100%;
-          // height: 100%;
-          // position: absolute;
-          // top: 0;
-          // left: 0;
-          // color: #fff;
-          // display: none;
-          // background-size: 100%;
-          // background-position: center center;
-          &.go{
-            // animation-name: gogo;
-            // animation-timing-function: linear;
-            // animation-duration:50s;
-          }
-          @keyframes gogo{
-            from{
-              // background-size: 100%;
-            }
-            to{
-              // background-size: 200%;
-            }
-          }
-          // &:nth-child(1){ background-image: url('../images/kv-item-bg1.jpg'); }
-          // &:nth-child(2){ background-image: url('../images/kv-item-bg2.jpg'); }
-          // &:nth-child(3){ background-image: url('../images/kv-item-bg3.jpg'); }
-          // &:nth-child(4){ background-image: url('../images/kv-item-bg4.jpg'); }
-        }
-      }
-
-
-
-
-
-
-
-
-
-
 
     }
     .item-tag{
@@ -1588,115 +1407,15 @@ nav{
 
     }
     #web{
-      // display: none;
-      // margin: 0 auto;
-      // background: transparent url('../images/bg-web.png') repeat 0 0;
-      // position: relative;
-      // &:after{
-      //   content:'';
-      //   width: 100%;
-      //   height: 60%;
-      //   background-color: #e0e0e0;
-      //   position: absolute;
-      //   top: 0;
-      //   z-index: $web-bg;
-      // }
       .inner-box{
         max-width: 80%;
       }
     }
     #banner{
-      // width: 100%;
       max-width: 80%;
-      // margin: 50px auto;
-      // .slick2{
-      //   width: 100%;
-      //   // max-width: 1000px;
-      //   margin: 0 auto;
-      //   img{
-      //     width: 100%;
-      //   }
-      //   span{
-      //     display: block;
-      //     line-height: 40px;
-      //     text-align: center;
-      //   }
-      // }
-      .slick-prev,
-      .slick-next
-      {    
-        // background-color: #f00;
-      //   width: 42px;
-      //   height: 42px;
-      }    
-      // .slick-prev
-      // {    
-      //   left: -50px;
-      // }
-      // .slick-next
-      // {    
-      //   right: -50px;
-      // }
-      // .slick-dots {
-      //   bottom: -30px;
-      // }
-
-
-
-
     }
     #dm{
-      // display: none;
       max-width: 80%;
-      // margin: 50px auto;
-      // position: relative;
-      // .fancybox-button--zoom{
-      //   display: none !important;
-      // }
-      // .slick3{
-      //   li{
-      //     a{
-      //       transition:.3s;
-      //       width: calc(100% - 20px);
-      //       margin: 0 auto 10px;
-      //       display: block;
-      //       padding-top: 132%;
-      //       background-size: 100%;
-      //       background-position: 50% 50%;
-      //     }
-      //     span{
-      //       display: block;
-      //       text-align: center;
-      //     }
-      //     &:hover{
-      //       a{
-      //         transition:.3s;
-      //         background-size: 110%;
-
-      //       }
-      //     }
-      //   }
-      // }
-
-      // .slick-prev,
-      // .slick-next
-      // {    
-      //   width: 42px;
-      //   height: 42px;
-      // }    .slick-prev
-      // {    
-      //   left: -50px;
-      // }
-      // .slick-next
-      // {    
-      //   right: -50px;
-      // }
-      // .slick-dots {
-      //   bottom: -30px;
-      // }
-
-
-
     }
     #contact{
       max-width: 80%;
@@ -1706,7 +1425,6 @@ nav{
       }
       .what{
         .txt{
-          // flex: 0 0 31%;
           h4{
             @include font-size(34px);
           }
@@ -1837,271 +1555,24 @@ nav{
 
 }
 
-
-
-
-
-
-
-
-
-
-
 @include breakpoint(960) {
-  html,body{
-  }
-  nav{
-  }
   .main{
-
-
     .kv-box{
-      ul.title{
-      }
-      .logo{
-        // width: 150px;
-      }
-      ul.kv-menu{
-        li{
-          // width: 85px;
-          // height: 180px;
-          // padding: 15px 0 0 8px;
-          // background-position: -75% 90%;
-          // background-size: 150%;
-          // @include font-size(22px);
-          a{
-            &:after{
-              // @include font-size(14px);
-              // left: 18px;
-            }
-          }
-          &:hover{
-            // background-size: 80%;
-            // @include font-size(28px);
-            a{
-              &:after{
-                // @include font-size(16px);  
-                // left: 25px;              
-              }
-            }
-          }
-        }
-      }
       //- 四單元說明文
-      .kv-txt-box{
-      }
       ul.kv-txt{
         li{
           &:before{
             content:'';
-            // max-width: 450px;
-            // @include font-size(36px);
-            // line-height: 3.5rem;
-            // transform: translateX(-50%);        
-          }
-        }
-
-      }
-      //文案浮現
-      .words{
-        display: none;
-        li{
-        }
-      }
-      //衝浪者
-      .surfing{
-      }
-      //- 四單元底圖
-      ul.kv-bg{
-        li{
-          &.go{
+            max-width: 450px;
+            @include font-size(35px);
+            line-height: 3.2rem;
+            // transform: translateX(-50%); 
+            // background-color: $a;       
           }
         }
       }
-    }
-    .item-tag{
-      // margin: 0 auto 30px;
-      h2{
-        &.current{
-          &:before{
-          }
-        }
-        &:before{
-        }
-        &:after{
-        }
-      }
-
-    }
-    #web{
-      // display: none;
-      // max-width: 960px;
-    }
-    #banner{
-      // width: 100%;
-      // max-width: calc(100% - 117px);
-
-      .slick-prev,
-      .slick-next
-      {    
-        // background-color: #f00;
-      }    
-    }
-    #dm{
-      // max-width: calc(100% - 117px);
-    }
-    #contact{
-      // width: 98%;
-      // max-width: 826px;
-      h3{
-        // margin: 0 0 20px;
-        // font-size: 8vw;
-      }
-      .what{
-        .txt{
-          // flex: 0 0 31%;
-          h4{
-            // @include font-size(30px);
-          }
-        }
-        dl{
-          // flex: 0 0 22%;
-          &:nth-child(2){
-            dt{
-              &:after{
-                content:'';
-                // border-top: 15px solid #36556f;
-              }  
-            }
-          }
-          &:nth-child(3){
-            dt{
-              &:after{
-                content:'';
-                // border-top: 15px solid #20354d;
-              }  
-            }
-          }
-          &:nth-child(4){
-            dt{
-              &:after{
-                content:'';
-                // border-top: 15px solid #0d2035;
-              }  
-            }
-          }
-          dt{
-            @include font-size(15px);
-            // letter-spacing: 4px;
-            &:after{
-              content:'';
-              // border-right: 12px solid transparent;
-              // border-left: 12px solid transparent;
-              // bottom: -13px;
-              // left: 8px;
-            }
-          }
-          dd{
-            ul{
-              // margin-top: 20px;
-              // padding-left: 26px;
-              li{
-                // margin-bottom: 3px;
-                // line-height: 15px;
-                // @include font-size(12px);
-
-              }
-            }
-          }
-        }
-      }
-      .can-do{
-        .txt{
-          // flex: 0 0 30%;
-          h4{
-            // @include font-size(30px);
-            // margin: 0 0 10px;
-          }
-          p{
-            // line-height: 20px;
-            // @include font-size(15px);
-          }
-          button{
-            // padding: 10px 5px;
-            &:last-child{
-            }
-            &:hover{
-            }
-            svg{
-              // @include font-size(20px);
-              // flex: 0 0 25px;
-            }
-            div{
-              // flex: 0 0 calc( 100% - 25px);
-              // padding-left: 10px;
-              span{
-                a{
-                  // @include font-size(13px);
-                  &:after{
-                    content: '';
-                  }
-                  &:hover{
-                  }
-                }
-                &.phonenum{
-                  // @include font-size(23px);
-                }
-                &.address{
-                  // @include font-size(13px);
-                }
-                &.copy{
-                }
-                &.mail{
-                  a{
-                    &:after{
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-        .form-box{
-          // flex: 0 0 70%;
-          .form{
-            // padding: 15px;
-
-            div{
-              input[type="text"]{
-                // padding: 10px 0;
-                // @include font-size(13px);
-              }
-              textarea{
-                // padding: 5px;
-                // line-height: 18px;
-                // @include font-size(13px);
-              }
-              button{
-                // padding: 5px;
-                // @include font-size(13px);
-                svg{
-                  // @include font-size(20px);
-                }
-              }
-            }
-
-          }
-        }
-      }    
     }
   }
-
-
-
-
-
-
-
 }
 
 
@@ -2109,15 +1580,10 @@ nav{
 
 @include breakpoint(767) {
   html,body{
-    // font-size: 20px;
   }
   nav{
-    // display: none;
     .menu{
       background-color: transparent;
-      .menucheck{
-        // position: relative;
-      }
       .logo-nav{
         display: none;
         &+span{
@@ -2130,11 +1596,11 @@ nav{
       }
       // 漢堡
       .switch{
-        width: 100%;
-        height: 50px;
-        background-color: $sec-color;
-        position: relative;
-        cursor: pointer;
+        // width: 100%;
+        // height: 50px;
+        // background-color: $sec-color;
+        // position: relative;
+        // cursor: pointer;
         //選單的x圖型
         &::before,
         &::after{
@@ -2196,90 +1662,27 @@ nav{
   .main{
     
     .kv-box{
-      width: 95%;
-      ul.title{
-      }
-      .logo{
-        // width: 150px;
-      }
-      ul.kv-menu{
+      // width: 95%;
+      .words {
+        width: 50%;
+        // top: 26%;
+        // transform: translateX(-50%);
         li{
-          // width: 85px;
-          // height: 180px;
-          // padding: 15px 0 0 8px;
-          // background-position: -75% 90%;
-          // background-size: 150%;
-          // @include font-size(22px);
-          a{
-            &:after{
-              // @include font-size(14px);
-              // left: 18px;
-            }
-          }
-          &:hover{
-            // background-size: 80%;
-            // @include font-size(28px);
-            a{
-              &:after{
-                // @include font-size(16px);  
-                // left: 25px;              
-              }
-            }
-          }
-        }
-      }
-      //- 四單元說明文
-      .kv-txt-box{
-      }
-      ul.kv-txt{
-        li{
-          &:before{
-            content:'';
-            // max-width: 450px;
-            // @include font-size(36px);
-            // line-height: 3.5rem;
-            // transform: translateX(-50%);        
-          }
-        }
-
-      }
-      //文案浮現
-      .words{
-        display: none;
-        li{
-        }
-      }
-      //衝浪者
-      .surfing{
-      }
-      //- 四單元底圖
-      ul.kv-bg{
-        li{
-          &.go{
-          }
+          // background-color: #f0f;
+  
         }
       }
     }
     .item-tag{
-      // margin: 0 auto 30px;
       h2{
         @include font-size(23px);
-        &.current{
-          &:before{
-          }
-        }
-        &:before{
-        }
         &:after{
           @include font-size(12px);
           margin-top: 5px;
         }
       }
-
     }
     #web{
-      // display: none;
-      // max-width: 960px;
       background-image: url(../images/bg-web-mobile.png);
       &:after {
         content: '';
@@ -2321,15 +1724,8 @@ nav{
                       display: block;
                     }
                     dd{
-                      @include font-size(18px);
-                      // line-height: 20px;
-      
+                      @include font-size(18px);      
                     }
-      
-
-
-
-
                   }
                 }
                 button{
@@ -2347,86 +1743,31 @@ nav{
     }
     #banner{
       max-width: 90%;
-      // width: 100%;
-      // max-width: calc(100% - 117px);
-
-      .slick-prev,
-      .slick-next
-      {    
-        // background-color: #f00;
-      }    
     }
     #dm{
       max-width: 90%;
-      // max-width: calc(100% - 117px);
     }
     #contact{
       max-width: 90%;
-      // width: 98%;
-      // max-width: 826px;
       h3{
-        // margin: 0 0 20px;
-        // font-size: 8vw;
         font-size: 8.4vw;
       }
       .what{
         flex-flow: wrap column;
-        // justify-content: flex-start;
         .txt{
-          // flex: 0 0 31%;
           h4{
-            // @include font-size(30px);
             text-align: center;
             margin: 30px 0 20px;
           }
         }
         .dl-group{
           dl{
-            // flex: 0 0 22%;
-            &:nth-child(1){
-              dt{
-                &:after{
-                  content:'';
-                  // border-top: 15px solid #36556f;
-                }  
-              }
-            }
-            &:nth-child(2){
-              dt{
-                &:after{
-                  content:'';
-                  // border-top: 15px solid #20354d;
-                }  
-              }
-            }
-            &:nth-child(3){
-              dt{
-                &:after{
-                  content:'';
-                  // border-top: 15px solid #0d2035;
-                }  
-              }
-            }
-            dt{
-              @include font-size(18px);
-              // letter-spacing: 4px;
-              &:after{
-                content:'';
-                // border-right: 12px solid transparent;
-                // border-left: 12px solid transparent;
-                // bottom: -13px;
-                // left: 8px;
-              }
-            }
             dd{
               ul{
-                // margin-top: 20px;
-                // padding-left: 26px;
                 li{
                   margin-bottom: 5px;
                   line-height: 20px;
                   @include font-size(15px);
-
                 }
               }
             }
@@ -2437,7 +1778,6 @@ nav{
         display: flex;
         flex-flow: wrap column;
         .txt{
-          // flex: 0 0 30%;
           display: flex;
           flex-flow: wrap column;
           padding-right: 0;
@@ -2445,8 +1785,6 @@ nav{
             h4{
               flex:0 0 100%;
               text-align: center;
-              // @include font-size(30px);
-              // margin: 0 0 10px;
             }
           }
           .word{
@@ -2454,7 +1792,6 @@ nav{
             justify-content: space-between;
             p{
               flex: 0 0 48%;
-              // background-color: #f00;
               margin: 0;
               line-height: 23px;
               @include font-size(18px);
@@ -2464,65 +1801,25 @@ nav{
               display: flex;
               flex-flow: wrap column;
               button{
-      
-                // padding: 10px 5px;
                 &:last-child{
                 }
                 &:hover{
                 }
-                svg{
-                  // @include font-size(20px);
-                  // flex: 0 0 25px;
-                }
-                div{
-                  // flex: 0 0 calc( 100% - 25px);
-                  // padding-left: 10px;
-                  span{
-                    a{
-                      // @include font-size(13px);
-                      &:after{
-                        content: '';
-                      }
-                      &:hover{
-                      }
-                    }
-                    &.phonenum{
-                      // @include font-size(23px);
-                    }
-                    &.address{
-                      // @include font-size(13px);
-                    }
-                    &.copy{
-                    }
-                    &.mail{
-                      a{
-                        &:after{
-                        }
-                      }
-                    }
-                  }
-                }
               }
-
             }
           }
         }
         .form-box{
-          // flex: 0 0 70%;
           .form{
-            // padding: 15px;
             margin-top: 15px;
             width: 100%;
             float:none;
             flex-flow: wrap column;
-
             div{
               &.input-group{
-                // flex: 0 0 33.3%;
                 margin-bottom: 15px;
               }
               &.textarea{
-                // flex: 0 0 66.6%;
                 textarea{
                   height: 100px;
                   margin-bottom: 15px;
@@ -2530,17 +1827,13 @@ nav{
                 }
               }
               input[type="text"]{
-                // padding: 10px 0;
                 @include font-size(18px);
                 width: 60%;
               }
               textarea{
-                // padding: 5px;
-                // line-height: 18px;
                 @include font-size(18px);
               }
               button{
-                // padding: 5px;
                 @include font-size(18px);
                 svg{
                   @include font-size(25px);
@@ -2552,11 +1845,9 @@ nav{
                 }
                 &.for-pc{
                   display: none;
-                }
-  
+                }  
               }
             }
-
           }
         }
       }    
@@ -2570,33 +1861,24 @@ nav{
   .main{
     .kv-box{
       height: 87.8vh;
+      .words {
+        width: 60%;
+        top: 30%;
+        @include font-size(18px);
+        line-height: 26px;
+      }
       ul.title{
-        // display: none;
         display: block;
         text-align: right;
         transform: scale(1);
         top: -40px;
         li{
-          // display:inline;
           display: inline-block;
           margin-left: 5px;
         }
       }
       ul.kv-menu{
         display: none;
-      }
-      //- 四單元底圖
-      ul.kv-bg{
-        // list-style: none;
-        // width: 100%;
-        // height: 100%;
-        // margin: 0;
-        // padding: 0;
-        // position: relative;
-        // z-index: $kv-bg-ul;
-        li{
-          // background-size: cover;
-        }
       }
     }
     #web{
@@ -2618,20 +1900,14 @@ nav{
         }      
       }
     }
-
     #contact{
-      // max-width: 90%;
       h3{
       }
       .what{
-        // flex-flow: wrap column;
         margin-bottom: 50px;
         .txt{
           h4{
-            // text-align: center;
-            // margin: 30px 0 20px;
             @include font-size(24px);
-
           }
         }
         .dl-group{
@@ -2639,107 +1915,42 @@ nav{
           width: 90%;
           max-width: 260px;
           margin: 0 auto;
-          dl{
-            
+          dl{            
             dt{
               @include font-size(18px);
               &:after{
                 content:'';
               }
             }
-            dd{
-              ul{
-                li{
-                  // margin-bottom: 5px;
-                  // line-height: 20px;
-                  // @include font-size(15px);
-
-                }
-              }
-            }
           }
         }
       }
       .can-do{
-        // display: flex;
-        // flex-flow: wrap column;
         .txt{
-          // display: flex;
-          // flex-flow: wrap column;
-          // padding-right: 0;
           .head{
             h4{
-              // flex:0 0 100%;
-              // text-align: center;
               @include font-size(24px);
             }
           }
           .word{
-            // display: flex;
-            // justify-content: space-between;
             flex-flow: wrap column;
             width: 90%;
             max-width: 260px;
             margin: 0 auto;
             p{
-              // flex: 0 0 48%;
-              // background-color: #f00;
-              // margin: 0;
-              // line-height: 23px;
-              // @include font-size(18px);
               margin: 10px auto 20px;
             }
             .btn-group{
-              // flex: 0 0 48%;
-              // display: flex;
-              // flex-flow: wrap column;
               button{
                 width: 220px;
                 margin-left: auto;
                 margin-right: auto;
                 padding: 10px;
               }
-
             }
-          }
-        }
-        .form-box{
-          .form{
-            // margin-top: 15px;
-            // width: 100%;
-            // float:none;
-            // flex-flow: wrap column;
-
-            div{
-              &.input-group{
-                // margin-bottom: 15px;
-              }
-              &.textarea{
-                textarea{
-                  // height: 100px;
-                  // margin-bottom: 15px;
-
-                }
-              }
-              input[type="text"]{
-                // @include font-size(18px);
-                // width: 60%;
-              }
-              textarea{
-                // @include font-size(18px);
-              }
-              button{
-                // @include font-size(18px);
-                svg{
-                  // @include font-size(25px);
-                }
-              }
-            }
-
           }
         }
       }    
     }
   }
-
 }
