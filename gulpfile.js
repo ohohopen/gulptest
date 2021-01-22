@@ -93,7 +93,8 @@ gulp.task('babel', () =>
     './source/js/**/copytext.js',
     './source/js/**/gotop.js',
     './source/js/**/item-color.js',
-    './source/js/**/kv-slider.js'
+    './source/js/**/kv-slider.js',
+    './source/js/**/media-set.js'
   ])
     .pipe(sourcemaps.init())
     .pipe(babel({

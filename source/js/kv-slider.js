@@ -54,6 +54,16 @@ $(function(){
     // console.log('寬：'+_kvBg_w)
     // console.log('高：'+_kvBg_h)
     // console.log('比值：'+_value)
-  
+    
+
+
+
+
+
+
+
+
+
+
 })
 //kv-slider.js end
