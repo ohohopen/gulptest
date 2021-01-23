@@ -36,6 +36,19 @@ html(lang='en')
     //-lightbox
     link(rel="stylesheet" href="viewbox-master/viewbox.css")
     script(src="viewbox-master/jquery.viewbox.min.js")
+
+    script(src="js/jquery.preload.js")
+
+    script.
+      $(function(){
+        $.preload(
+          'images/kv-item-bg1.jpg',
+          'images/kv-item-bg2.jpg',
+          'images/kv-item-bg3.jpg',
+          'images/kv-item-bg4.jpg'
+        );
+      })
+
   body
     .container
     
