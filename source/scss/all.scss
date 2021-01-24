@@ -536,6 +536,8 @@ nav{
         height: 100%;
         position: relative;
         text-shadow: 1px 1px 10px rgba(#000,.2);
+        @include font-size(56px);
+        line-height: 3.8rem;
         &:before{
           content:'';
           display: block;
@@ -543,14 +545,12 @@ nav{
           height: 50%;
           max-width: 650px;
           font-weight: 700;
-          line-height: 3.8rem;
           text-align: justify;
           position: relative;
           position: absolute;
           top: 10%;
           left: 50%;
           transform: translateX(-90%);        
-          @include font-size(56px);
         }
         &:nth-child(1){
           &:before{
@@ -1385,11 +1385,11 @@ nav{
       //- 四單元說明文
       ul.kv-txt{
         li{
+          @include font-size(36px);
+          line-height: 3.5rem;
           &:before{
             content:'';
             max-width: 450px;
-            @include font-size(36px);
-            line-height: 3.5rem;
             transform: translateX(-50%);        
           }
         }
@@ -1620,11 +1620,11 @@ nav{
       //- 四單元說明文
       ul.kv-txt{
         li{
+          @include font-size(35px);
+          line-height: 3.2rem;
           &:before{
             content:'';
             max-width: 450px;
-            @include font-size(35px);
-            line-height: 3.2rem;
             // transform: translateX(-50%); 
             // background-color: $a;       
           }

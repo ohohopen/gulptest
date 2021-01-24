@@ -23,11 +23,15 @@ $(window).on('resize', function () {
     $('.site-name').css('display', 'none');
     $('.surfing').css('top', '50%');
   } else if (_w < 767) {
-    console.log('w<600');
+    console.log('w<767');
     $('.site-name').css('display', 'none');
+  } else if (_h < 800) {
+    console.log('w<800');
+    $('ul.kv-txt').find('li').css('font-size', '40px');
   } else {
     $('.kv-menu').css('display', 'flex');
     $('.site-name').css('display', 'block');
+    $('ul.kv-txt').find('li').css('font-size', '56px');
   }
 }).resize(); //media-set.js end
 "use strict";
