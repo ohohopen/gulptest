@@ -13,9 +13,15 @@ $(window).on('resize',function(){
     console.log('w<1280/h<550')
     $('.kv-menu').css('display','none');
     $('.site-name').css('display','none');
+    $('.title').css('top','-25px');
+    $('.surfing').css('top','35%');
   }else if(_w < 600){
     console.log('w<600')
     $('.kv-menu').css('display','none');
+    $('.site-name').css('display','none');
+    $('.surfing').css('top','50%');
+  }else if(_w < 767){
+    console.log('w<600')
     $('.site-name').css('display','none');
   }else{
     $('.kv-menu').css('display','flex');

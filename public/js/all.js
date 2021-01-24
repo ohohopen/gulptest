@@ -1,5 +1,37 @@
 "use strict";
 
+//mqdia-set.js start
+$(window).on('resize', function () {
+  var _w = $(window).outerWidth(true),
+      _h = $(window).outerHeight(true);
+
+  console.log('_w' + _w + ', _h:' + _h);
+
+  if (_w > 1280 && _h < 700) {
+    console.log('w>1280/h<700');
+    $('.kv-menu').css('display', 'none');
+    $('.site-name').css('display', 'none');
+  } else if (_w < 1280 && _h < 550) {
+    console.log('w<1280/h<550');
+    $('.kv-menu').css('display', 'none');
+    $('.site-name').css('display', 'none');
+    $('.title').css('top', '-25px');
+    $('.surfing').css('top', '35%');
+  } else if (_w < 600) {
+    console.log('w<600');
+    $('.kv-menu').css('display', 'none');
+    $('.site-name').css('display', 'none');
+    $('.surfing').css('top', '50%');
+  } else if (_w < 767) {
+    console.log('w<600');
+    $('.site-name').css('display', 'none');
+  } else {
+    $('.kv-menu').css('display', 'flex');
+    $('.site-name').css('display', 'block');
+  }
+}).resize(); //media-set.js end
+"use strict";
+
 //nav.js start
 $(function () {
   var $switch = $('.switch'),
@@ -309,30 +341,4 @@ $(function () {
   // console.log('比值：'+_value)
 
 }); //kv-slider.js end
-"use strict";
-
-//mqdia-set.js start
-$(window).on('resize', function () {
-  var _w = $(window).outerWidth(true),
-      _h = $(window).outerHeight(true);
-
-  console.log('_w' + _w + ', _h:' + _h);
-
-  if (_w > 1280 && _h < 700) {
-    console.log('w>1280/h<700');
-    $('.kv-menu').css('display', 'none');
-    $('.site-name').css('display', 'none');
-  } else if (_w < 1280 && _h < 550) {
-    console.log('w<1280/h<550');
-    $('.kv-menu').css('display', 'none');
-    $('.site-name').css('display', 'none');
-  } else if (_w < 600) {
-    console.log('w<600');
-    $('.kv-menu').css('display', 'none');
-    $('.site-name').css('display', 'none');
-  } else {
-    $('.kv-menu').css('display', 'flex');
-    $('.site-name').css('display', 'block');
-  }
-}).resize(); //media-set.js end
 //# sourceMappingURL=all.js.map
