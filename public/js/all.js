@@ -26,7 +26,7 @@ $(window).on('resize', function () {
     console.log('w<767');
     $('.site-name').css('display', 'none');
   } else if (_h < 800) {
-    console.log('w<800');
+    console.log('h<800');
     $('ul.kv-txt').find('li').css('font-size', '40px');
   } else {
     $('.kv-menu').css('display', 'flex');

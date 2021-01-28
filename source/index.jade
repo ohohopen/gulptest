@@ -48,7 +48,6 @@ html(lang='en')
           'images/kv-item-bg4.jpg'
         );
       })
-
   body
     .container
     
@@ -234,6 +233,18 @@ html(lang='en')
 
             ul.slick2
               li
+                div(style="background-color:#333")
+                  .video
+                    video(src="c.mp4" type="video/mp4" controls)
+                span 專案名稱專案名稱專案名稱專案名稱專案名稱
+              //- li
+              //-   .sample#animation_container
+              //-     canvas#canvas
+              //-     div#dom_overlay_container
+
+              //-   img(src="images/banner-m1.jpg" class='for-m')
+              //-   span 專案名稱專案名稱專案名稱專案名稱專案名稱
+              li
                 img(src="images/banner.jpg" class='for-pc')
                 img(src="images/banner-m1.jpg" class='for-m')
                 span 專案名稱專案名稱專案名稱專案名稱專案名稱
@@ -350,6 +361,9 @@ html(lang='en')
     script(type="text/javascript" src="js/createjs-2015.11.26.min.js")
     script(type="text/javascript" src="js/surfing.js")
     script(type="text/javascript" src="js/animate.js")
+    //-第二個html5 banner
+    //- script(type="text/javascript" src="js/test.js")
+    //- script(type="text/javascript" src="js/animate2.js")
     //- 小圖瀏覽
     script(type="text/javascript" src="slick/slick.min.js")
     //- 全部js整併 

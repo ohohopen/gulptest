@@ -655,7 +655,7 @@ nav{
     }
     .surfing{
       position: absolute;
-      // background-color: rgba(red,.5);
+      background-color: rgba(red,.5);
       @include abs-ver-center();
       left: 35%;
       // transform: translateX(-150%);
@@ -666,8 +666,7 @@ nav{
       animation-duration:1s;
       animation-iteration-count:infinite;
       animation-direction:alternate;
-      animation-timing-function:linear;
-      
+      animation-timing-function:linear;     
     }
     //- 四單元底圖
     ul.kv-bg{
@@ -903,6 +902,33 @@ nav{
       width: 100%;
       // max-width: 1000px;
       margin: 0 auto;
+      .video{
+        background-color: #f00;
+        display: flex;
+        width: 100%;
+        max-width: 590px;
+        margin: 0 auto;
+        video{
+          width: 100%;
+        }
+      }
+
+      .sample{
+        &#animation_container2{
+          #canvas{
+            width: 100% !important;
+            height: 100% !important;
+          }
+        }
+  
+      }
+  
+
+
+
+
+
+
       img{
         width: 100%;
         &.for-m{

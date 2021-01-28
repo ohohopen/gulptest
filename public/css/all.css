@@ -850,6 +850,7 @@ nav .sub-menu {
             transform-origin: top right; } }
     .main .kv-box .surfing {
       position: absolute;
+      background-color: rgba(255, 0, 0, 0.5);
       top: 50%;
       -webkit-transform: translateY(-50%);
               transform: translateY(-50%);
@@ -1067,6 +1068,17 @@ nav .sub-menu {
     .main #banner .slick2 {
       width: 100%;
       margin: 0 auto; }
+      .main #banner .slick2 .video {
+        background-color: #f00;
+        display: flex;
+        width: 100%;
+        max-width: 590px;
+        margin: 0 auto; }
+        .main #banner .slick2 .video video {
+          width: 100%; }
+      .main #banner .slick2 .sample#animation_container2 #canvas {
+        width: 100% !important;
+        height: 100% !important; }
       .main #banner .slick2 img {
         width: 100%; }
         .main #banner .slick2 img.for-m {
